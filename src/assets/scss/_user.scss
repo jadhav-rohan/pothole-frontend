@@ -1,0 +1,25 @@
+//
+// user.scss
+// Use this to write your custom SCSS
+//
+
+.yarl__navigation_next, .yarl__navigation_prev,
+.yarl__slide_placeholder{
+    display: none;
+}
+.yarl__slide_image{
+        border-radius: 0.5rem;
+}
+.cursor_pointer{
+    cursor: pointer;
+}
+
+
+// Hide arrow in category dropdown menu 
+#category-dropdown-menu-button{
+    padding: 0px!important;
+}
+#category-dropdown-menu-button-mobile::after,
+#category-dropdown-menu-button::after{
+    content: ""!important;
+}
