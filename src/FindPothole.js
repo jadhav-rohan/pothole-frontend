@@ -21,7 +21,7 @@ const FindPothole = () => {
             <div>
               <div className=" text-center text-md-start ">
                 {/* heading */}
-                <h1 className=" display-2 fw-bold  mb-3">Find PotHole in your City, State.</h1>
+                <h1 className=" display-2 fw-bold  mb-3">Find & Report PotHoles in your City, State.</h1>
                 {/* lead */}
                 <p className="lead">The largest network to find and report potholes in your city.</p>
               </div>
@@ -38,13 +38,13 @@ const FindPothole = () => {
             <div className="position-relative ">
               <Image src={JobHeroSection} className="img-fluid " />
               <div className="position-absolute top-0 mt-7 ms-n6 ms-md-n6 ms-lg-n12 start-0">
-                <Image src={JobHeroBlock1} className="img-fluid " />
+                {/* <Image src={JobHeroBlock1} className="img-fluid " /> */}
               </div>
               <div className="position-absolute bottom-0 mb-12 me-n6 me-md-n4 me-lg-n12 end-0 ">
-                <Image src={JobHeroBlock2} className="img-fluid " />
+                {/* <Image src={JobHeroBlock2} className="img-fluid " /> */}
               </div>
               <div className="position-absolute bottom-0 mb-n4 ms-n1 ms-md-n4 ms-lg-n7 start-0">
-                <Image src={JobHeroBlock3} className="img-fluid " />
+                {/* <Image src={JobHeroBlock3} className="img-fluid " /> */}
               </div>
             </div>
           </Col>

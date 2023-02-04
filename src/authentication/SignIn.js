@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 
 // import media files
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import NavBar from "../NavBar";
+import axios from "axios";
 const SignIn = () => {
+    const history = useNavigate();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+
+    const login = () => {
+        axios.post("http://localhost:9002/login", {email, password})
+        .then(res => {
+            alert(res.data.message)
+            // setLoginUser(res.data.user)
+            history.push("/")
+        })
+    }
+
     return(
         <Fragment>
             <NavBar/>
@@ -21,7 +36,7 @@ const SignIn = () => {
 								<h1 className="mb-1 fw-bold">Sign in</h1>
 								<span>
 									Don’t have an account?{' '}
-									<Link to="/authentication/sign-up" className="ms-1">
+									<Link to="/sign-up" className="ms-1">
 										Sign up
 									</Link>
 								</span>
@@ -36,7 +51,8 @@ const SignIn = () => {
 											type="email"
 											id="email"
 											placeholder="Email address here"
-											required
+											value={email} 
+                                            onChange={(e) => setEmail(e.target.value)}
 										/>
 									</Col>
 									<Col lg={12} md={12} className="mb-3">
@@ -46,7 +62,8 @@ const SignIn = () => {
 											type="password"
 											id="password"
 											placeholder="**************"
-											required
+											value={password} 
+                                            onChange={(e) => setPassword(e.target.value)}
 										/>
 									</Col>
 									<Col lg={12} md={12} className="mb-3">
@@ -65,7 +82,7 @@ const SignIn = () => {
 									</Col>
 									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 										{/* Button */}
-										<Button variant="primary" type="submit">
+										<Button variant="primary" type="submit" onClick={login}>
 											Sign in
 										</Button>
 									</Col>

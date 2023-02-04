@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Home() {
+function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="" className="text-black">
       <Container>
@@ -17,7 +17,7 @@ function Home() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#pricing">Find a Pothole</Nav.Link>
             <NavDropdown title="Report" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Report a Pothole</NavDropdown.Item>
+              <NavDropdown.Item href="/report">Report a Pothole</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Blogs
               </NavDropdown.Item>
@@ -40,4 +40,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default NavBar;

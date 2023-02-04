@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
+import swal from "sweetalert"
 import axios from "axios"
 // import media files
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
@@ -13,6 +14,7 @@ const SignUp = () => {
     //     email:"",
     //     password:"",
     // })
+    const history = useNavigate()
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -22,15 +24,16 @@ const SignUp = () => {
         
         if( name && email && password){
             // const user = {name, email, password};
-            const config = {
-                headers: {
-                    "Content-type": "application/json"
-                }
-            }
-            axios.post("http://localhost:9002/register", {name, email, password}, config)
+            // const config = {
+            //     headers: {
+            //         "Content-type": "application/json"
+            //     }
+            // }
+            axios.post("http://localhost:9002/register", {name, email, password})
             .then( res => {
                 alert(res.data.message)
-                // history.push("/login")
+                history.push("/login")
+                // console.log(res);
             })
         } else {
             alert("invlid input")
@@ -52,7 +55,7 @@ const SignUp = () => {
 								<h1 className="mb-1 fw-bold">Sign up</h1>
 								<span>
 									Already have an account?{' '}
-									<Link to="/authentication/sign-in" className="ms-1">
+									<Link to="/sign-in" className="ms-1">
 										Sign in
 									</Link>
 								</span>
