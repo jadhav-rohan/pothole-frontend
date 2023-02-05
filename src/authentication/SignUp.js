@@ -23,12 +23,6 @@ const SignUp = () => {
     const register = () => {
         
         if( name && email && password){
-            // const user = {name, email, password};
-            // const config = {
-            //     headers: {
-            //         "Content-type": "application/json"
-            //     }
-            // }
             axios.post("http://localhost:9002/register", {name, email, password})
             .then( res => {
                 alert(res.data.message)
