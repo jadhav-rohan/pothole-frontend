@@ -1,21 +1,30 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { Carousel } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-function PotholeCard() {
+const Card = ({image, email, address, pincode, city, state}) => {
+  
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <>
+    <div className="col-md-3" style={{marginTop: "50px"}}>
+            <div className="card">
+                <div className="card-body">
+                    <div className="card-img-actions"> <img src={image} className="card-img img-fluid"  alt=""/> </div>
+                </div>
+                <div className="card-body bg-light text-center">
+                    <div className="mb-2">
+                        <h2 className="font-weight-semibold mb-2">{city} </h2> <a href="#" className="text-muted" data-abc="true"></a>
+                        <h6>Address: {address}, {state}</h6>
+                        <h3>Pincode: {pincode}</h3>
+                    </div>
+                    <h3 className="mb-0 font-weight-semibold"></h3>
+                    <Link to={city}><h6>Details</h6></Link>
+                </div>
+            </div>
+      </div>
+      </>
   );
 }
 
-export default PotholeCard;
+export default Card;

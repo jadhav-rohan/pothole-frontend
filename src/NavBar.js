@@ -5,8 +5,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+  const history = useNavigate();
   return (
     <Navbar collapseOnSelect expand="lg" bg="" className="text-black">
       <Container>
@@ -21,7 +23,7 @@ function NavBar() {
               <NavDropdown.Item href="#action/3.2">
                 Blogs
               </NavDropdown.Item>
-              {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item> */}
+              <NavDropdown.Item href="/user-details">User Profile</NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
               {/* <NavDropdown.Item href="#action/3.4">
                 Separated link
@@ -29,6 +31,11 @@ function NavBar() {
             </NavDropdown>
           </Nav>
           <Nav>
+            {/* {!isAuthenticated()
+             && <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button> 
+            }
+            {isAuthenticated() &&
+            <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Logout</Button>} */}
             <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button>
             <Button href="/sign-up" className="m-1">
               Signup    

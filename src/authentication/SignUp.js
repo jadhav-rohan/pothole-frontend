@@ -1,39 +1,31 @@
 import React, { useState } from "react";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
+import { Col, Row, Card, Form, Button, Image, Toast } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'; 
-import swal from "sweetalert"
+
 import axios from "axios"
 // import media files
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import NavBar from "../NavBar";
 const SignUp = () => {
-    // const [ user, setUser] = useState({
-    //     name: "",
-    //     email:"",
-    //     password:"",
-    // })
-    const history = useNavigate()
+    const navigate = useNavigate()
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const register = () => {
-        
+		
         if( name && email && password){
-            axios.post("http://localhost:9002/register", {name, email, password})
-            .then( res => {
-                alert(res.data.message)
-                history.push("/login")
-                // console.log(res);
-            })
-        } else {
-            alert("invlid input")
+				axios.post("http://localhost:9002/api/signup", {name, email, password})
+				.then((res) => {
+					console.log(res.data.message)
+					// alert(res.data.message)
+					// navigate("/sign-in")
+				})
+        	}
         }
-        
-    }
 
     return(
         <Fragment>

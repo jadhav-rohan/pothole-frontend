@@ -2,38 +2,51 @@ import axios from "axios";
 import React, { useState }  from "react";
 import Form from 'react-bootstrap/Form';
 import NavBar from "./NavBar";
-const FormData = require('form-data');
 
 const ReportPothole = () => {
+
     const [email, setEmail] = useState("")
     const [address, setAddress] = useState("")
     const [pincode, setPincode] = useState("")
     const [city, setCity] = useState("")
     const [state, setState] = useState("")
     const [image, setImage] = useState("")
-
+    console.log(image);
     function handleImage(e){
-        console.log(e.target.files)
-        setImage(e.target.files[0])
+        const file = e.target.files[0];
+        TransformFile(file)
     }
 
-    function handleApi(){
-        console.log(email, address)
-        const formData = new FormData()
-        formData.append("testImage", image)
-        formData.append("email", email)
-        formData.append("address", address)
-        formData.append("pincode", pincode)
-        formData.append("city", city)
-        formData.append("state", state)
-        // console.log(formData);   
-        axios.post("http://localhost:9002/add", formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        })
-        .then((res) => console.log(res))
-        .catch(err => console.log(err))
+    const TransformFile = (file) => {
+        const render = new FileReader();
+
+        if(file){
+            render.readAsDataURL(file)
+            render.onloadend = () => {
+                setImage(render.result)
+            }
+        }else{
+            setImage("")
+        }
+    }
+
+    const handleApi = async (e) =>{
+        e.preventDefault();
+        try {
+            const {data} = await axios.post('http://localhost:9002/api/addPothole', {email, address, pincode, city, state, image})
+            if (data){
+                setEmail('');
+                setAddress('');
+                setPincode('');
+                setCity('');
+                setState('')
+                setImage('');
+                alert('product created successfully')
+            }
+            console.log(data);
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return(
@@ -75,10 +88,8 @@ const ReportPothole = () => {
                             onChange={handleImage}  
                             />
                         </Form.Group>
-                        <input type="submit" value="Upload File" />
-                        {/* <button type="submit" onSubmit={handleApi}>Post</button> */}
+                        <input className="btn btn-primary" type="submit" value="Upload File" />
                     </Form>
-                    
                     </div>
                 </div>
             </div>

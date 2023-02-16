@@ -14,11 +14,13 @@ const SignIn = () => {
     const [password, setPassword] = useState("")
 
     const login = () => {
-        axios.post("http://localhost:9002/login", {email, password})
-        .then(res => {
-            alert(res.data.message)
-            // setLoginUser(res.data.user)
-            history.push("/")
+        axios.post("http://localhost:9002/api/login", {email, password})
+        .then(res=> {
+			// console.log(res);
+            console.log(res.data.msg);
+			// localStorage.setItem("jwt",res.data._id)
+            // localStorage.setItem("user",JSON.stringify(res.data.user))
+            // history("/")
         })
     }
 

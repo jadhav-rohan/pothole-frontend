@@ -1,17 +1,15 @@
 import React from "react";
-import PotholeCard from "./Card";
+import Display from "./Display";
 
 import FindPothole from "./FindPothole";
 import NavBar from "./NavBar";
-// import Process from "./Process";
 
 const Home = () => {
     return(
         <div>
             <NavBar/>
             <FindPothole/>
-            <PotholeCard/>
-            {/* <Process/> */}
+            <Display/>
         </div>
     )
 }
