@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Card, Form, Button, Image, Toast } from 'react-bootstrap';
+import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'; 
 
 import axios from "axios"
@@ -15,14 +15,14 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const register = () => {
-		
+    const register = (e) => {
+		e.preventDefault();
         if( name && email && password){
 				axios.post("http://localhost:9002/api/signup", {name, email, password})
 				.then((res) => {
-					console.log(res.data.message)
-					// alert(res.data.message)
-					// navigate("/sign-in")
+					// console.log(res.data.message)
+					alert(res.data.message)
+					navigate("/sign-in")
 				})
         	}
         }
@@ -100,6 +100,7 @@ const SignUp = () => {
 									</Col>
 									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 										{/* Button */}
+										
 										<Button variant="primary" type="submit" onClick={register}>
 											Sign in
 										</Button>

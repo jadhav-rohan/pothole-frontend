@@ -6,9 +6,11 @@ import { Col, Row, Container, Image } from 'react-bootstrap';
 
 // import media files
 import JobHeroSection from './assets/images/job/png/job-hero-section.png';
-import JobHeroBlock1 from './assets/images/job/job-hero-block-1.svg';
-import JobHeroBlock2 from './assets/images/job/job-hero-block-2.svg';
-import JobHeroBlock3 from './assets/images/job/job-hero-block-3.svg';
+import TagLine from './assets/images/logo/tagline2.png';
+import Civil from './assets/images/png/civil.png';
+import Report from './assets/images/png/report.png';
+import Accident from './assets/images/png/accident.png';
+import Damaged from './assets/images/png/damaged.png';
 import FindPotholeSearchBox from './FindPotholeSearchBox';
 
 const FindPothole = () => {
@@ -36,15 +38,18 @@ const FindPothole = () => {
           </Col>
           <Col lg={{ span: 5, offset: 1 }} sm={12} className="text-center">
             <div className="position-relative ">
-              <Image src={JobHeroSection} className="img-fluid " />
+              <Image src={TagLine} className="img-fluid rounded-circle" />
               <div className="position-absolute top-0 mt-7 ms-n6 ms-md-n6 ms-lg-n12 start-0">
-                {/* <Image src={JobHeroBlock1} className="img-fluid " /> */}
+                <Image src={Civil} className="img-fluid " />
               </div>
-              <div className="position-absolute bottom-0 mb-12 me-n6 me-md-n4 me-lg-n12 end-0 ">
-                {/* <Image src={JobHeroBlock2} className="img-fluid " /> */}
+              <div className="position-absolute top-0 mt-7 ms-n6 ms-md-n6 ms-lg-n12 end-0">
+                <Image src={Report} className="img-fluid " />
+              </div>
+              <div className="position-absolute bottom-0 mb-12 me-n6 me-md-n4 me-lg-n12 end-0">
+                <Image src={Damaged} className="img-fluid " />
               </div>
               <div className="position-absolute bottom-0 mb-n4 ms-n1 ms-md-n4 ms-lg-n7 start-0">
-                {/* <Image src={JobHeroBlock3} className="img-fluid " /> */}
+                <Image src={Accident} className="img-fluid " />
               </div>
             </div>
           </Col>

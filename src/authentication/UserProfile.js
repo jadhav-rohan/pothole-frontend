@@ -5,43 +5,19 @@ import { isAuthenticated, signout } from "./helper/auth";
 
 const UserProfile = () => {
     const navigate = useNavigate();
+    
     return(
-      
-
-      <div>
-        {isAuthenticated() ?  
+      <div> 
         <span
-                  className="nav-link text-dark btn"
-                  onClick={() => {
-                    signout(() => {
-                      navigate("/sign-in")
-                    });
-                  }}
-                >
-                Signout
-                </span> : <h1>LogIn</h1>
-        }
+          className="nav-link text-dark btn"
+          onClick={() => {
+          signout(() => {
+          navigate("/sign-in")
+          });
+          }}>
+          Signout
+        </span>
       </div>
-
-
-
-        // <div>
-          
-        //     {/* {isAuthenticated() && (
-        //       <li className="nav-item">
-        //         <span
-        //           className="nav-link text-dark btn"
-        //           onClick={() => {
-        //             signout(() => {
-        //               // history.push("/");
-        //             });
-        //           }}
-        //         >
-        //           Signout
-        //         </span>
-        //       </li>
-        //     )} */}
-        // </div>
     )
 }
 

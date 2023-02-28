@@ -6,6 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from "react-router-dom";
+import { isAuthenticated, signout } from "./authentication/helper/auth";
+
 
 function NavBar() {
   const history = useNavigate();
@@ -34,8 +36,8 @@ function NavBar() {
             {/* {!isAuthenticated()
              && <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button> 
             }
-            {isAuthenticated() &&
-            <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Logout</Button>} */}
+            {isAuthenticated() && */}
+            {/* <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Logout</Button> */}
             <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button>
             <Button href="/sign-up" className="m-1">
               Signup    
