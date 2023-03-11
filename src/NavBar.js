@@ -15,12 +15,12 @@ function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="">
       <Container>
-        <Navbar.Brand href="/">PotHero</Navbar.Brand>
+        <Navbar.Brand href="/" className="text-primary">PotHero</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#pricing">Find a Pothole</Nav.Link>
+            <Nav.Link href="/allPotholeCards">Find a <span className='text-primary'> PotHole </span></Nav.Link>
             <Nav.Link href="/blog">Blogs</Nav.Link>
             <NavDropdown title="Report" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/report">Report a Pothole</NavDropdown.Item>

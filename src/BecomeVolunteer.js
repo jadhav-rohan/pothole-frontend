@@ -47,7 +47,7 @@ const BecomeVolunteer = () => {
         </Col>
         <Col lg={5} xs={12}>
           <div className="text-dark p-3">
-            <h2 className="h1 text-dark">Become a Volunteer today</h2>
+            <h2 className="h1 text-dark"> Become a<span className='text-primary'>  Volunteer</span> today</h2>
             <p className="mb-0">Instructors from around the world teach millions of students on Geeks. We provide the tools
               and skills to teach what you love.</p>
             <Link to="#" className="btn btn-primary mt-4 " onClick={handleShow}>Start Contributing Today</Link>

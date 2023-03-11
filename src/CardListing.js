@@ -46,10 +46,9 @@ const Display = () => {
 
     return (
       
-      
         <div className="row">
             {/* <Carousel responsive={responsive}> */}
-            <h2 className="text-center">Potholes Listed </h2>
+            <h2 className="text-center"><span className="text-primary">PotHoles</span> Listed</h2>
                 {potholes}
                 {data.length > 8 && 
                 <div className='text-center'>

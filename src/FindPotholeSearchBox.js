@@ -2,6 +2,7 @@
 import { Col, Form, InputGroup, Button } from 'react-bootstrap';
 
 const FindPotholeSearchBox = () => {
+    
     return (
         <div className="bg-white rounded-md-pill shadow rounded-3 mb-4">
             <div className="p-md-2 p-4">

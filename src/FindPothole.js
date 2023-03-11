@@ -23,14 +23,15 @@ const FindPothole = () => {
             <div>
               <div className=" text-center text-md-start ">
                 {/* heading */}
-                <h1 className=" display-2 fw-bold  mb-3">Find & Report PotHoles in your City, State.</h1>
+                <h1 className=" display-2 fw-bold  mb-3">Find & Report<span className='text-primary'> PotHoles</span> in your City, State.</h1>
                 {/* lead */}
-                <p className="lead">The largest network to find and report potholes in your city.</p>
+                <p className="lead">The largest network to find and report 
+                <span className='text-primary'> PotHoles</span> in your city.</p>
               </div>
               <div className="mt-8">
                 {/* job search form */}
                 {/* <JobSearchBox /> */}
-                <FindPotholeSearchBox/>
+                {/* <FindPotholeSearchBox/> */}
                 {/* text */}
                 <span className=" fs-4">Currently listing 30,642 potholes from 5,717 cities</span>
               </div>

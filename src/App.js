@@ -16,7 +16,6 @@ import PotholeCard from "./Card";
 import Home from "./Home"
 import ReportPothole from "./ReportPothole";
 
-
 function App() {
   return (
 	<Routes>
