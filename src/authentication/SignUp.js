@@ -84,7 +84,7 @@ const SignUp = () => {
 									</Col>
 									<Col lg={12} md={12} className="mb-3">
 										{/* Checkbox */}
-										<Form.Check type="checkbox" id="check-api-checkbox">
+										{/* <Form.Check type="checkbox" id="check-api-checkbox">
 											<Form.Check.Input type="checkbox" />
 											<Form.Check.Label>
 												I agree to the
@@ -96,7 +96,7 @@ const SignUp = () => {
 													Privacy Policy.
 												</Link>
 											</Form.Check.Label>
-										</Form.Check>
+										</Form.Check> */}
 									</Col>
 									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 										{/* Button */}

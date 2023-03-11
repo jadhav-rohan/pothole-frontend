@@ -5,7 +5,7 @@ const Card = ({image, email, address, pincode, city, state}) => {
   
   return (
   
-    <div className="col-md-10" style={{marginTop: "50px"}}>
+    <div className="col-md-3" style={{marginTop: "20px"}}>
             <div className="card">
                 <div className="card-body">
                     <div className="card-img-actions"> <img src={image} className="card-img img-fluid"  alt=""/> </div>

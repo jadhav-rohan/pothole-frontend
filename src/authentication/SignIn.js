@@ -73,13 +73,13 @@ const SignIn = () => {
 									<Col lg={12} md={12} className="mb-3">
 										{/* Checkbox */}
 										<div className="d-md-flex justify-content-between align-items-center">
-											<Form.Group
+											{/* <Form.Group
 												className="mb-3 mb-md-0"
 												controlId="formBasicCheckbox"
 											>
-												<Form.Check type="checkbox" label="Remember me" />
-											</Form.Group>
-											<Link to="/authentication/forget-password">
+											<Form.Check type="checkbox" label="Remember me" />
+											</Form.Group> */}
+											<Link to="/forget-password">
 												Forgot your password?
 											</Link>
 										</div>

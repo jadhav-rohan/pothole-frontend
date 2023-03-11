@@ -10,9 +10,10 @@ import { isAuthenticated, signout } from "./authentication/helper/auth";
 
 
 function NavBar() {
-  const history = useNavigate();
+  const navigate = useNavigate();
+  
   return (
-    <Navbar collapseOnSelect expand="lg" bg="" className="text-black">
+    <Navbar collapseOnSelect expand="lg" className="">
       <Container>
         <Navbar.Brand href="/">PotHero</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -20,11 +21,9 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#pricing">Find a Pothole</Nav.Link>
+            <Nav.Link href="/blog">Blogs</Nav.Link>
             <NavDropdown title="Report" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/report">Report a Pothole</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Blogs
-              </NavDropdown.Item>
               <NavDropdown.Item href="/user-details">User Profile</NavDropdown.Item>
               {/* <NavDropdown.Divider /> */}
               {/* <NavDropdown.Item href="#action/3.4">
@@ -33,12 +32,19 @@ function NavBar() {
             </NavDropdown>
           </Nav>
           <Nav>
-            {/* {!isAuthenticated()
+            {!isAuthenticated()
              && <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button> 
             }
-            {isAuthenticated() && */}
-            {/* <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Logout</Button> */}
-            <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button>
+            {isAuthenticated() &&
+            <Button className="btn-light m-1 btn-outline-primary"
+            onClick={() => {
+              signout(() => {
+              navigate("/sign-in")
+              });
+            }}
+            >Logout</Button>
+            }
+            {/* <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button> */}
             <Button href="/sign-up" className="m-1">
               Signup    
             </Button>

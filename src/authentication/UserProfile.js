@@ -7,16 +7,30 @@ const UserProfile = () => {
     const navigate = useNavigate();
     
     return(
-      <div> 
-        <span
-          className="nav-link text-dark btn"
-          onClick={() => {
-          signout(() => {
-          navigate("/sign-in")
-          });
-          }}>
-          Signout
-        </span>
+      <div>
+        {!isAuthenticated() && <div> 
+            <span
+              className="nav-link text-dark btn"
+              onClick={() => {
+              navigate("/sign-in");
+              }}>
+              Login
+            </span>
+          </div>
+        }
+        {
+          isAuthenticated() && <div> 
+          <span
+            className="nav-link text-dark btn"
+            onClick={() => {
+            signout(() => {
+            navigate("/sign-in")
+            });
+            }}>
+            Signout
+          </span>
+        </div>
+        }
       </div>
     )
 }

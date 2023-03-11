@@ -15,7 +15,7 @@ import FindPotholeSearchBox from './FindPotholeSearchBox';
 
 const FindPothole = () => {
   return (
-    <section className="bg-light py-lg-14 py-12 bg-cover">
+    <section className="bg-light py-lg-14 py-12 bg-cover mb-3">
       {/* container */}
       <Container>
         <Row className="align-items-center">
@@ -38,7 +38,7 @@ const FindPothole = () => {
           </Col>
           <Col lg={{ span: 5, offset: 1 }} sm={12} className="text-center">
             <div className="position-relative ">
-              <Image src={TagLine} className="img-fluid rounded-circle" />
+              {/* <Image src={TagLine} className="img-fluid rounded-circle" />
               <div className="position-absolute top-0 mt-7 ms-n6 ms-md-n6 ms-lg-n12 start-0">
                 <Image src={Civil} className="img-fluid " />
               </div>
@@ -49,8 +49,10 @@ const FindPothole = () => {
                 <Image src={Damaged} className="img-fluid " />
               </div>
               <div className="position-absolute bottom-0 mb-n4 ms-n1 ms-md-n4 ms-lg-n7 start-0">
-                <Image src={Accident} className="img-fluid " />
-              </div>
+                <Image src={Accident} className="img-fluid " /> */}
+              {/* </div> */}
+
+              
             </div>
           </Col>
         </Row>
