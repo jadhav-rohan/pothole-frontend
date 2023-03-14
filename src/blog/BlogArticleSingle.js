@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Footer from '../Footer';
-import NavBar from '../NavBar';
-import BlogCard from './BlogCard';
+import Footer from '../core/Footer';
+import NavBar from '../core/NavBar';
+// import BlogCard from './BlogCard';
 
 const BlogArticleSingle = ({title, description, author, image}) => {
 	return (
 		<div>
 			<NavBar/>
+			<div className='bg-light'>
 			<div className='text-center mt-4 text-uppercase font-weight-bold'>
 				<h1>{title}</h1>
 			</div>
@@ -24,6 +25,7 @@ const BlogArticleSingle = ({title, description, author, image}) => {
 				</div>
 			</Container>
 			<Footer/>
+			</div>
 		</div>
 	);
 };

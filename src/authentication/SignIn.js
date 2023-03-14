@@ -5,7 +5,7 @@ import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 
 // import media files
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
-import NavBar from "../NavBar";
+import NavBar from "../core/NavBar";
 import axios from "axios";
 const SignIn = () => {
     const history = useNavigate();
@@ -20,15 +20,15 @@ const SignIn = () => {
 			// console.log(res);
             alert(res.data.msg);
 			console.log(res)
-			localStorage.setItem("jwt",res.data.user._id)
-            localStorage.setItem("user",JSON.stringify(res.data.user))
-            // history("/")
+			// localStorage.setItem("jwt",res.data.user._id)
+            localStorage.setItem("jwt",JSON.stringify(res.data))
         })
     }
 
     return(
         <Fragment>
             <NavBar/>
+			<div className="bg-light">
 			<Row className="align-items-center justify-content-center g-0 min-vh-100">
 				<Col lg={5} md={5} className="py-8 py-xl-0">
 					<Card>
@@ -127,6 +127,7 @@ const SignIn = () => {
 					</Card>
 				</Col>
 			</Row>
+			</div>
 		</Fragment>
     )
 }

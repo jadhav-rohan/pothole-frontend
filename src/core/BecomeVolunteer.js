@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { Col, Row, Container, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 // import media files
-import CTAInstructor from './assets/images/png/5236.jpg';
-import Dollor from './assets/images/svg/dollor.svg';
-import Graph from './assets/images/svg/graph.svg';
+import CTAInstructor from '../assets/images/png/5236.jpg';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -56,7 +54,7 @@ const BecomeVolunteer = () => {
               <Modal.Header closeButton>
                 <Modal.Title>Become a Volunteer</Modal.Title>
               </Modal.Header>
-              <Modal.Body>We'll get in touch with you soon!
+              <Modal.Body className='bg-light'>We'll get in touch with you soon!
               <form>
                 <div class="form-group">
                   <label for="name">Name</label>

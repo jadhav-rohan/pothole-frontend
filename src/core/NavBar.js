@@ -6,14 +6,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useNavigate } from "react-router-dom";
-import { isAuthenticated, signout } from "./authentication/helper/auth";
+import { isAuthenticated, signout } from "../authentication/helper/auth";
 
 
 function NavBar() {
   const navigate = useNavigate();
   
   return (
-    <Navbar collapseOnSelect expand="lg" className="">
+    <Navbar collapseOnSelect expand="lg" className="shadow-sm">
       <Container>
         <Navbar.Brand href="/" className="text-primary">PotHero</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -1,8 +1,8 @@
 import React from 'react'
-import Meta from "./assets/images/png/meta.png"
-import Microsoft from "./assets/images/png/microsoft.png"
-import Google from "./assets/images/png/google.png"
-import IBM from "./assets/images/png/IBM.png"
+import Meta from "../assets/images/png/meta.png"
+import Microsoft from "../assets/images/png/microsoft.png"
+import Google from "../assets/images/png/google.png"
+import IBM from "../assets/images/png/IBM.png"
 
 const CompaniesSection = () => {
   return (

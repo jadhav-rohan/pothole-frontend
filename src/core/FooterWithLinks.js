@@ -3,15 +3,9 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image, Container, ListGroup } from 'react-bootstrap';
 
-// import MDI icons
-// import Icon from '@mdi/react';
-// import { mdiFacebook, mdiTwitter, mdiInstagram } from '@mdi/js';
-
 // import media files
-import FooterLogo from './assets/images/brand/logo/logo.svg';
-import AppStore from './assets/images/svg/appstore.svg';
-import PlayStore from './assets/images/svg/playstore.svg';
-import BecomeVolunteer from './BecomeVolunteer';
+import AppStore from '../assets/images/svg/appstore.svg';
+import PlayStore from '../assets/images/svg/playstore.svg';
 
 const FooterWithLinks = () => {
 	return (

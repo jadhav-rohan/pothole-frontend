@@ -7,7 +7,6 @@ import BlogCard from './BlogCard';
 
 // import data files
 
-import BlogArticlesList from './blogArticlesData';
 import axios from 'axios';
 
 const BlogSection = () => {

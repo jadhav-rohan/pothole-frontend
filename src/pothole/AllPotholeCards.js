@@ -1,13 +1,63 @@
-// import node module libraries
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
+import 'react-multi-carousel/lib/styles.css';
+import NavBar from "../core/NavBar";
+import Footer from "../core/Footer";
 import { Col, Form, InputGroup, Button } from 'react-bootstrap';
+const AllPotholeCards = () => {
+    const [searchCity, setSearchCity] = useState("")
+    const [searchState, setSearchState] = useState("")
 
-const FindPotholeSearchBox = () => {
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        axios
+        .get("http://localhost:9002/api/getAll")
+        .then((res) => setData(res.data))
+        .catch((err) => console.log(err, "it has an error"));
+    }, []);
+
+    const filtered = data.filter(item => {
+        return (
+            item.city.toLowerCase().includes(searchCity.toLowerCase()) &&
+            item.state.toLowerCase().includes(searchState.toLowerCase())
+        )
+    });
     
+    var f = filtered;
+    const handleChangeCity = (e) =>{
+        setSearchCity(e.target.value)
+    }
+
+    const handleChangeState = (e) => {
+        setSearchState(e.target.value);
+    }
+
+    console.log(filtered);
+
+    const potholes = f.length > 0 && f.map((p, i) => (
+        <Card 
+        key={i}
+        image={p.image.url} 
+        email={p.email}
+        address={p.address} 
+        pincode={p.pincode} 
+        city={p.city} 
+        state={p.state}
+        />
+    ));
+
     return (
-        <div className="bg-white rounded-md-pill shadow rounded-3 mb-4">
+        <div>
+            <NavBar/>
+            <div className="bg-light p-4">
+            <h1 className="text-center">All <span className='text-primary'> PotHoles </span> Listed on the Site</h1>
+            <h5 className="text-center mt-2">You Can Search <span className='text-primary'> PotHoles </span>listed in your area</h5>
+            <div className="d-flex justify-content-center">
+            <div className="bg-white rounded-md-pill w-50 shadow rounded-3 mb-3 mt-3">
             <div className="p-md-2 p-4">
                 <Form className="row g-1">
-                    <Col md={5} sm={12}>
+                    <Col md={6} sm={12}>
                         {/* input group job title */}
                         <InputGroup>
                             <InputGroup.Text id="searchJob" className="bg-transparent border-0 pe-0 ps-md-3 ps-md-0">
@@ -21,10 +71,11 @@ const FindPotholeSearchBox = () => {
                                 aria-label="city"
                                 aria-describedby="searchPothole"
                                 className="rounded-pill border-0 ps-3 form-focus-none"
+                                onChange={handleChangeCity}
                             />
                         </InputGroup>
                     </Col>
-                    <Col md={4} sm={12} >
+                    <Col md={6} sm={12} >
                         {/* input group location */}
                         <InputGroup>
                             <InputGroup.Text id="location" className="bg-transparent border-0 pe-0 ps-md-3 ps-md-0">
@@ -39,17 +90,22 @@ const FindPotholeSearchBox = () => {
                                 aria-label="Search State"
                                 aria-describedby="location"
                                 className="rounded-pill border-0 ps-3 form-focus-none"
+                                onChange={handleChangeState}
                             />
                         </InputGroup>
                     </Col>
-                    <Col md={3} sm={12} className="text-end d-grid">
-                        {/* button */}
-                        <Button type="submit" className="rounded-pill">Search</Button>
-                    </Col>
                 </Form>
             </div>
-        </div>
+            </div>
+            </div>
+            <div className="row m-3">
+                {potholes}
+            </div>
+            </div>
+         <Footer/>
+         </div>
+        
     )
 }
 
-export default FindPotholeSearchBox
+export default AllPotholeCards;

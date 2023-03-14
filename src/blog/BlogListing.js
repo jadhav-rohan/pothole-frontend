@@ -9,9 +9,8 @@ import BlogCardFullWidth from './BlogCardFullWidth';
 
 // import data files
 
-import BlogArticlesList from './blogArticlesData';
-import NavBar from '../NavBar';
-import Footer from '../Footer';
+import NavBar from '../core/NavBar';
+import Footer from '../core/Footer';
 import axios from 'axios';
 import BlogSection from './BlogSection';
 
@@ -39,7 +38,7 @@ const BlogListing = () => {
 		<Fragment>
 			{/* Page header */}
             <NavBar/>
-			<div className="pt-9 pb-9 bg-white ">
+			<div className="pt-9 pb-9 bg-light p-4">
 				<Container>
 					<Row>
 						<Col
@@ -88,9 +87,6 @@ const BlogListing = () => {
 								</Col>
 						))}
 
-						{false && <BlogSection data = {data}/>}
-
-				
 
 					</Row>
 				</Container>

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import BlogArticleSingle from './BlogArticleSingle'
 
 const Data = () => {
-    const [details, setDetails] = useState([])
+  const [details, setDetails] = useState([])
 	const params = useParams()
 	const postid = params.id;
 

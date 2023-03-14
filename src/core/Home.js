@@ -1,12 +1,13 @@
 import React from "react";
-import Display from "./CardListing";
+import Display from "../pothole/CardListing"
 import AboutUs from "./AboutUs";
-import FindPothole from "./FindPothole";
+
 import NavBar from "./NavBar";
 import BecomeVolunteer from "./BecomeVolunteer";
-import BlogSection from "./blog/BlogSection";
+import BlogSection from "../blog/BlogSection";
 import CompaniesSection from "./CompaniesSection";
 import FooterWithLinks from "./FooterWithLinks";
+import FindPothole from "../pothole/FindPothole";
 
 const Home = () => {
     return(

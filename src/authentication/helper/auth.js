@@ -14,15 +14,23 @@ export const signout = (next) => {
     }
 };
   
-  export const isAuthenticated = () => {
+export const isAuthenticated = () => {
     if (typeof window == "undefined") {
       return false;
     }
     if (localStorage.getItem("jwt")) {
-      // return JSON.parse(localStorage.getItem("jwt"));
-      return true;
+      return JSON.parse(localStorage.getItem("jwt"));
+      // return true;
     } else {
       return false;
     }
-  };
-  
+};
+
+export const authenticate = (data, next) => {
+  if (typeof window !== "undefined") {
+    localStorage.setItem("jwt", JSON.stringify(data));
+    next();
+  }
+};
+
+

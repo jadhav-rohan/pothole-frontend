@@ -6,7 +6,7 @@ import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 // import media files
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import axios from 'axios';
-import NavBar from '../NavBar';
+import NavBar from '../core/NavBar';
 
 const ForgetPassword = () => {
 
@@ -26,6 +26,7 @@ const ForgetPassword = () => {
 	return (
 		<Fragment>
 			<NavBar/>
+			<div className='bg-light'>
 			<Row className="align-items-center justify-content-center g-0 min-vh-100">
 				<Col lg={5} md={5} className="py-8 py-xl-0">
 					<Card>
@@ -66,6 +67,7 @@ const ForgetPassword = () => {
 					</Card>
 				</Col>
 			</Row>
+			</div>
 		</Fragment>
 	);
 };

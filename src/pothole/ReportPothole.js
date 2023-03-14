@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState }  from "react";
 import Form from 'react-bootstrap/Form';
-import NavBar from "./NavBar";
+import NavBar from "../core/NavBar";
 
 const ReportPothole = () => {
 

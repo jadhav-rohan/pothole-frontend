@@ -7,7 +7,7 @@ const AboutUs = () => {
   return (
 		<div>
             <NavBar/>
-            <Row>
+            <Row className='bg-light'>
                 <Col lg={{ span: 8, offset: 2 }} md={12} sm={12} className="mb-12 mt-5">
                     {/* caption */}
                     <h1 className="display-2 fw-bold mb-3">

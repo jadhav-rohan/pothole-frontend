@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-// import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 const Display = () => {
@@ -33,6 +32,14 @@ const Display = () => {
         .catch((err) => console.log(err, "it has an error"));
     }, []);
 
+    // const cities = new Set();
+    // console.log(...data.map((p, i) => {
+    //     // console.log(p.city)
+    //     cities.add(p.city);
+    // }))
+
+    // console.log(cities)
+
     const potholes = data && data.slice(0,8).map((p,i) => (
         <Card key={i} 
         image={p.image.url} 
@@ -46,7 +53,7 @@ const Display = () => {
 
     return (
       
-        <div className="row">
+        <div className="row" style={{marginTop: "16%"}}>
             {/* <Carousel responsive={responsive}> */}
             <h2 className="text-center"><span className="text-primary">PotHoles</span> Listed</h2>
                 {potholes}
