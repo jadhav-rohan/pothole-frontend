@@ -13,7 +13,7 @@ const BlogArticleSingle = ({title, description, author, image}) => {
 				<h1>{title}</h1>
 			</div>
 			<div className='d-flex justify-content-center mt-3'>
-				<img src={image} className="rounded w-75"/>
+				<img src={image} className="rounded w-25"/>
 			</div>
 			<Container>
 				<div className='text-center mt-4'>

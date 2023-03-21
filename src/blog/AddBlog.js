@@ -1,10 +1,11 @@
 import axios from "axios";
-import React, { useState }  from "react";
+import React, { useEffect, useState }  from "react";
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from "react-router-dom";
 import NavBar from "../core/NavBar";
 
 const AddBlog = () => {
-
+    const navigate = useNavigate();
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [author, setAuthor] = useState("")
@@ -12,7 +13,12 @@ const AddBlog = () => {
     const [date, setDate] = useState("")
     const [image, setImage] = useState("")      
 
-    
+    useEffect(() => {
+        if(localStorage.getItem("role") === "0"){
+            navigate("/sign-in")
+        } 
+    }, [])
+
     function handleImage(e){
         const file = e.target.files[0];
         TransformFile(file)

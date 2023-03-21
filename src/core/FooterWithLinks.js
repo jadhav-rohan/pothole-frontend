@@ -9,10 +9,10 @@ import PlayStore from '../assets/images/svg/playstore.svg';
 
 const FooterWithLinks = () => {
 	return (
-		<Fragment>
+		<Fragment className= "bg-white">
 			{/*  footer */}
-            <hr className='mt-3'></hr>
-			<section className="pt-lg-10 pt-5 footer bg-light mt-2 ">
+            
+			<section className="p-2 footer bg-white" style={{"marginTop": "10rem"}}>
 				<Container>
 					<Row>
 						<Col lg={4} md={6} sm={12}>
@@ -56,18 +56,8 @@ const FooterWithLinks = () => {
 										</Link>
 									</ListGroup.Item>
 									<ListGroup.Item as="li" bsPrefix=" ">
-										<Link to="#" className="nav-link">
-											Pricing
-										</Link>
-									</ListGroup.Item>
-									<ListGroup.Item as="li" bsPrefix=" ">
 										<Link to="/blog" className="nav-link">
 											Blogs
-										</Link>
-									</ListGroup.Item>
-									<ListGroup.Item as="li" bsPrefix=" ">
-										<Link to="#" className="nav-link">
-											Careers
 										</Link>
 									</ListGroup.Item>
 									<ListGroup.Item as="li" bsPrefix=" ">
@@ -99,17 +89,7 @@ const FooterWithLinks = () => {
 									</ListGroup.Item>
 									<ListGroup.Item as="li" bsPrefix=" ">
 										<Link to="#" className="nav-link">
-											Get the app
-										</Link>
-									</ListGroup.Item>
-									<ListGroup.Item as="li" bsPrefix=" ">
-										<Link to="#" className="nav-link">
 											FAQ’s
-										</Link>
-									</ListGroup.Item>
-									<ListGroup.Item as="li" bsPrefix=" ">
-										<Link to="#" className="nav-link">
-											Tutorial
 										</Link>
 									</ListGroup.Item>
 								</ListGroup>
@@ -129,10 +109,6 @@ const FooterWithLinks = () => {
 										(000) 123 456 789
 									</span>
 								</p>
-								<div className="d-flex">
-									<Link to="#"><img src={AppStore} alt="" className="img-fluid" /></Link>
-									<Link to="#" className="ms-2"><img src={PlayStore} alt="" className="img-fluid" /></Link>
-								</div>
 							</div>
 						</Col>
 					</Row>

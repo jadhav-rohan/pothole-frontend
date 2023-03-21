@@ -1,7 +1,7 @@
 // import node module libraries
 import React, { Fragment, useEffect, useState } from 'react';
 import { Col, Row, Container, Button } from 'react-bootstrap';
-
+import "../index.css"
 // import sub components
 import BlogCard from './BlogCard';
 
@@ -22,9 +22,8 @@ const BlogSection = () => {
 		<Fragment>
 			<div className="pb-8">
 				<Container>
-                <h1 className='mb-3 text-center'>Latest Blogs</h1>
+                <h4 className='mb-4 text-center text-primary'>LATEST BLOGS</h4>
 					<Row className='mt-2'>
-						{/* Show remaining articles in 3 column width  */}
 						{data.slice(0, 3).map((item, index) => (
 							<Col xl={4} lg={4} md={6} sm={12} key={index} className="d-flex">
 								<BlogCard item={item} />

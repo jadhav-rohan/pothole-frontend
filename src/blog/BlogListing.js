@@ -48,10 +48,9 @@ const BlogListing = () => {
 							sm={12}
 						>
 							<div className="text-center mb-5">
-								<h1 className="display-2 fw-bold">Blogs Newsroom</h1>
+								<h2 className="display-2 fw-bold">Blogs <span className='text-primary'>Newsroom</span></h2>
 								<p className="lead">
-									Our features, journey, tips and us being us. Lorem ipsum dolor
-									sit amet, accumsan in, tempor dictum neque.
+									Here you can find informative Blogs related to <span className='text-primary'>PotHoles</span>
 								</p>
 							</div>
 						</Col>
@@ -86,8 +85,6 @@ const BlogListing = () => {
 									<BlogCard item={item} />
 								</Col>
 						))}
-
-
 					</Row>
 				</Container>
 			</div>

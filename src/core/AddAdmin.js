@@ -9,17 +9,18 @@ import axios from "axios"
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import NavBar from "../core/NavBar";
 import { toast, ToastContainer } from "react-toastify";
-const SignUp = () => {
+const AddAdmin = () => {
     const navigate = useNavigate()
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-	const [mobile, setMobile] = useState("")
+    const [role, setRole] = useState("");
+
     const register = (e) => {
 		e.preventDefault();
         if( name && email && password){
-				axios.post("http://localhost:9002/api/signup", {name, email, password, mobile})
+				axios.post("http://localhost:9002/api/signup", {name, email, password})
 				.then((res) => {
 					// navigate("/sign-in")
 					if(res.data.code === 404){
@@ -30,8 +31,9 @@ const SignUp = () => {
 						setEmail("");
 						setName("");
 						setPassword("")
-						setMobile("")
 					}
+					// console.log(res)
+					// alert(res.data.message)
 				})
         	}
 			else{
@@ -84,16 +86,6 @@ const SignUp = () => {
 											placeholder="Email address here"
 											value={email}
                                             onChange = {(e) => setEmail(e.target.value)}
-										/>
-									</Col>
-									<Col lg={12} md={12} className="mb-3">
-										{/* email */}
-										<Form.Label>Mobile Number</Form.Label>
-										<Form.Control
-											type="text"
-											placeholder="Email mobile number"
-											value={mobile}
-                                            onChange = {(e) => setMobile(e.target.value)}
 										/>
 									</Col>
 									<Col lg={12} md={12} className="mb-3">
@@ -173,4 +165,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+export default AddAdmin;

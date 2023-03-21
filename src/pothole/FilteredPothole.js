@@ -6,15 +6,18 @@ import NavBar from "../core/NavBar";
 import Footer from "../core/Footer";
 import { Col, Form, InputGroup } from 'react-bootstrap';
 import Pagination from "./Pagination";
+import { useLocation } from "react-router-dom";
 
-const AllPotholeCards = () => {
-    const [searchCity, setSearchCity] = useState("")
+const FilteredPothole = () => {
+    const [search, setSearch] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [postPerPage, setPostPerPage] = useState(12)
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
 
+    const location = useLocation()
+    const {from} = location.state
     
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -23,26 +26,45 @@ const AllPotholeCards = () => {
         .then((res) => setData(res.data))
         .catch((err) => console.log(err, "it has an error"));
     }, []);
-
-    const currentPosts = data.slice(firstPostIndex, lastPostIndex);
-
+    
+    
+    const specificCity = data.filter(item => {
+        return (
+            item.city.toLowerCase().includes(from.toLowerCase())
+            )
+    });
+        
+    const currentPosts = specificCity.slice(firstPostIndex, lastPostIndex);
+        
     const filtered = currentPosts.filter(item => {
         return (
-            item.city.toLowerCase().includes(searchCity.toLowerCase()) ||
-            item.state.toLowerCase().includes(searchCity.toLowerCase()) ||
-            item.address.toLowerCase().includes(searchCity.toLowerCase()) ||
-            item.pincode.toLowerCase().includes(searchCity.toLowerCase())
+            item.city.toLowerCase().includes(search.toLowerCase()) ||
+            item.state.toLowerCase().includes(search.toLowerCase()) ||
+            item.address.toLowerCase().includes(search.toLowerCase())
         )
     });
-    
-    var f = filtered;
-    const handleChangeCity = (e) =>{
-        setSearchCity(e.target.value)
+    console.log(filtered)
+    // var f = filtered;
+    // var cityWise = specificCity;
+    const handleChange = (e) =>{
+        setSearch(e.target.value)
     }
 
     // console.log(filtered);
 
-    const potholes = f.length > 0 && f.map((p, i) => (
+    // const potholes = f.length > 0 && f.map((p, i) => (
+    //     <PotholeCard 
+    //     key={i}
+    //     image={p.image.url} 
+    //     email={p.email}
+    //     address={p.address} 
+    //     pincode={p.pincode} 
+    //     city={p.city} 
+    //     state={p.state}
+    //     />
+    // ));
+
+    const potholesCityWise = filtered.length > 0 && filtered.map((p, i) => (
         <PotholeCard 
         key={i}
         image={p.image.url} 
@@ -73,23 +95,22 @@ const AllPotholeCards = () => {
                             </InputGroup.Text>
                             <Form.Control
                                 type="search"
-                                placeholder="Search City or State or Address"
+                                placeholder="Search Address"
                                 aria-label="city"
                                 aria-describedby="searchPothole"
                                 className="rounded-pill border-0 ps-3 form-focus-none"
-                                onChange={handleChangeCity}
+                                onChange={handleChange}
                             />
                         </InputGroup>
                     </Col>
-                    
                 </Form>
             </div>
             </div>
             </div>
             <div className="row m-3">
-                {potholes}
+                {potholesCityWise}
                 <Pagination
-                totalPosts={data.length}
+                totalPosts={specificCity.length}
                 postsPerPage={postPerPage}
                 setCurrentPage={setCurrentPage}
                 currentPage={currentPage}
@@ -102,4 +123,4 @@ const AllPotholeCards = () => {
     )
 }
 
-export default AllPotholeCards;
+export default FilteredPothole;

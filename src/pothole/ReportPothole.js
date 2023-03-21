@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState }  from "react";
 import Form from 'react-bootstrap/Form';
+import { toast, ToastContainer } from "react-toastify";
 import NavBar from "../core/NavBar";
 
 const ReportPothole = () => {
@@ -41,7 +42,7 @@ const ReportPothole = () => {
                 setCity('');
                 setState('')
                 setImage('');
-                alert('product created successfully')
+                toast.success('Product created Successfully!')
             }
             console.log(data);
         } catch (error) {
@@ -50,9 +51,11 @@ const ReportPothole = () => {
     }
 
     return(
-        <div className="">
+        <>
+        <ToastContainer/>
+        <div>
             <NavBar/>
-            <div class="container h-100 mt-5">
+            <div class="h-100 p-5 bg-light">
                 <div class="row h-100 justify-content-center align-items-center">
                     <div class="col-10 col-md-8 col-lg-6">
                     <Form className="d-flex flex-column" onSubmit={handleApi} encType="multipart/form-data">
@@ -94,6 +97,7 @@ const ReportPothole = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

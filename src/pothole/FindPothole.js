@@ -6,9 +6,10 @@ import Carousel from 'react-bootstrap/Carousel';
 
 // import media files
 
-import Asphalt from '../assets/images/png/asphalt.png';
-import Highway from '../assets/images/png/highway.png';
-import Street from '../assets/images/png/street.png';
+import Asphalt from '../assets/images/png/1p.jpg';
+import Highway from '../assets/images/png/2p.jpg';
+import Street from '../assets/images/png/3p.jpg';
+import PotholeCard from './PotholeCard';
 
 
 const FindPothole = () => {

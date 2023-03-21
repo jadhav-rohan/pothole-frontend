@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import CTAInstructor from '../assets/images/png/5236.jpg';
 import { useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 const BecomeVolunteer = () => {
   const [show, setShow] = useState(false);
@@ -22,12 +23,18 @@ const BecomeVolunteer = () => {
       axios.post("http://localhost:9002/api/addVolunteer", {name, email, mobile})
       .then((res) => {
         console.log(res);
-        alert(res.data.message)
+        toast.success(res.data.message)
+        setEmail("")
+        setName("")
+        setMobile("")
+        handleClose()
       })
   }
 
   return (
-    <section className="mb-8 mt-5">
+    <>
+    <ToastContainer/>
+    <section className="" style={{"marginBottom": "10rem", "marginTop": "10rem"}}>
     <Container className="rounded-4 bg-light">
       <Row className="align-items-center">
         <Col lg={6} xs={12} className="">
@@ -98,8 +105,8 @@ const BecomeVolunteer = () => {
         </Col>
       </Row>
     </Container>
-    <hr className="mt-8 mb-3" />
   </section>
+  </>
   )
 }
 

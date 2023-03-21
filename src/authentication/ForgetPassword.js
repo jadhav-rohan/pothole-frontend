@@ -7,6 +7,7 @@ import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import axios from 'axios';
 import NavBar from '../core/NavBar';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ForgetPassword = () => {
 
@@ -15,15 +16,16 @@ const ForgetPassword = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post("http://localhost:9002/api/forget-password", {email} ).then((res) => {
-            alert(res.data.msg)
-            console.log(res);
+            toast.success(res.data.msg)
+			setEmail("")
         }).catch((error) => {
             alert(error)
         })
-        
     }
 
 	return (
+		<>
+		<ToastContainer/>
 		<Fragment>
 			<NavBar/>
 			<div className='bg-light'>
@@ -69,6 +71,7 @@ const ForgetPassword = () => {
 			</Row>
 			</div>
 		</Fragment>
+		</>
 	);
 };
 

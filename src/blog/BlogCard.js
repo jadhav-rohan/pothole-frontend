@@ -1,24 +1,10 @@
 // import node module libraries
 import React from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Image,ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const BlogCard = ({ item }) => {
-	// const CategoryColors = (category) => {
-	// 	switch (category) {
-	// 		case 'Courses':
-	// 			return 'success';
-	// 		case 'Tutorial':
-	// 			return 'primary';
-	// 		case 'Workshop':
-	// 			return 'warning';
-	// 		case 'Company':
-	// 			return 'info';
-	// 		default:
-	// 			return 'primary';
-	// 	}
-	// };
 	
 	const desc = item.description.slice(0, 200);
 	return (
@@ -61,6 +47,8 @@ const BlogCard = ({ item }) => {
 			</Card.Body>
 		</Card>
 	);
+
+	
 };
 
 // Typechecking With PropTypes

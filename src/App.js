@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./core/AboutUs";
-
+import "./index.css"
 
 import ForgetPassword from "./authentication/ForgetPassword";
 import SignIn from "./authentication/SignIn";
@@ -15,10 +15,14 @@ import Data from "./blog/Data";
 import Home from "./core/Home"
 import AllPotholeCards from "./pothole/AllPotholeCards";
 import ReportPothole from "./pothole/ReportPothole";
+import EmailVerify from "./authentication/EmailVerify";
+import FilteredPothole from "./pothole/FilteredPothole";
+
 
 
 function App() {
   return (
+	
 	<Routes>
 		<Route path = "/" element={<Home/>}/>
 		<Route path = "/sign-in" element = {<SignIn/>}/>
@@ -33,6 +37,9 @@ function App() {
 		<Route path = "/blog/article-single/:id" element = {<Data/>}/>
 		<Route path = "/about" element = {<AboutUs/>}/>
 		<Route path = "/becomeVolunteer" element = {<BecomeVolunteer/>}/>
+		<Route path = "/filteredPothole" element = {<FilteredPothole/>}/>
+		
+		<Route path="/:id/verify/:token" element={<EmailVerify />} />
 	</Routes>
   );
 }
