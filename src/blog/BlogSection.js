@@ -22,7 +22,7 @@ const BlogSection = () => {
 		<Fragment>
 			<div className="pb-8">
 				<Container>
-                <h4 className='mb-4 text-center text-primary'>LATEST BLOGS</h4>
+                <h4 className='mb-4 text-center'>LATEST BLOGS</h4>
 					<Row className='mt-2'>
 						{data.slice(0, 3).map((item, index) => (
 							<Col xl={4} lg={4} md={6} sm={12} key={index} className="d-flex">
@@ -31,7 +31,7 @@ const BlogSection = () => {
 						))}
 					</Row>
                     <div className='text-center'>
-                    <a className='p-3 rounded-pill btn btn-primary' href='/blog'>VIEW ALL</a>
+                    <a className='pl-3 btn mt-3 text-white' style={{"background": "#419be0"}} href='/blog'>VIEW ALL</a>
                     </div>
 				</Container>
 			</div>

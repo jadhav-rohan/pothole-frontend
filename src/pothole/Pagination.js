@@ -19,8 +19,7 @@ const Pagination = ({
                     <button
                         key={index}
                         onClick={() => setCurrentPage(page)}
-                        className = "btn btn-primary hover m-1 active"
-                        //  className={page == currentPage ? "active" : ""}
+                         className={page === currentPage ? "active bg-primary btn shadow-2 m-2" : "btn bg-light shadow-2 m-2"}
                         >
                         {page}
                     </button>

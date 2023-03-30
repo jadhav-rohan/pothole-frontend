@@ -13,10 +13,18 @@ import BlogListing from "./blog/BlogListing";
 import Data from "./blog/Data";
 
 import Home from "./core/Home"
-import AllPotholeCards from "./pothole/AllPotholeCards";
+import AllPotholeCards from "./pothole/FindPothole";
 import ReportPothole from "./pothole/ReportPothole";
 import EmailVerify from "./authentication/EmailVerify";
 import FilteredPothole from "./pothole/FilteredPothole";
+import EditBlog from "./blog/admin /EditBlog";
+import AdminDashboard from "./blog/admin /EditBlogData";
+import EditBlogData from "./blog/admin /EditBlogData";
+import SimpleSlider from "./Demo";
+
+import ContactForm from "./core/ContactForm";
+import Contact from "./core/Contact";
+import PrivacyPolicy from "./core/PrivacyPolicy";
 
 
 
@@ -28,18 +36,22 @@ function App() {
 		<Route path = "/sign-in" element = {<SignIn/>}/>
 		<Route path = "/sign-up" element = {<SignUp/>}/>
 		<Route path = "/report" element = {<ReportPothole/>}/>
-		<Route path = "/user-details" element = {<UserProfile/>}/>
 		<Route path = "/forget-password" element = {<ForgetPassword/>}/>
 		<Route path = "/blog" element = {<BlogListing/>}/>
 		<Route path = "/addBlog" element = {<AddBlog/>}/>
 		<Route path = "/allPotholeCards" element = {<AllPotholeCards/>}/>
-		{/* <Route path = "/blog/article-single/:id" element = {<BlogArticleSingle/>}/> */}
 		<Route path = "/blog/article-single/:id" element = {<Data/>}/>
+		<Route path = "/blog/article-single/edit/:id" element = {<EditBlogData/>}/>
+		<Route path = "/blog/article-single/edit" element = {<EditBlog/>}/>
+		<Route path = "/editBlog" element = {<AdminDashboard/>}/>
 		<Route path = "/about" element = {<AboutUs/>}/>
-		<Route path = "/becomeVolunteer" element = {<BecomeVolunteer/>}/>
 		<Route path = "/filteredPothole" element = {<FilteredPothole/>}/>
-		
+		<Route path = "/demo" element = {<SimpleSlider/>}/>
 		<Route path="/:id/verify/:token" element={<EmailVerify />} />
+		<Route path="/becomeVolunteer" element={<Contact title={"Become a Volunteer"} />} />
+		<Route path="/contact" element={<Contact title={"Get in touch with us"} />} />
+		<Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+		
 	</Routes>
   );
 }

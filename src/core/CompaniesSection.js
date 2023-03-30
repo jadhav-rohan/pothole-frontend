@@ -1,35 +1,28 @@
 import React from 'react'
-import Meta from "../assets/images/png/meta.png"
-import Microsoft from "../assets/images/png/microsoft.png"
-import Google from "../assets/images/png/google.png"
-import IBM from "../assets/images/png/IBM.png"
-
-// import StripeLogo from '../assets/images/brand/gray-logo-stripe.svg';
-// import AirbnbLogo from '../assets/images/brand/gray-logo-airbnb.svg';
-// import DiscordLogo from '../assets/images/brand/gray-logo-discord.svg';
-// import IntercomLogo from '../assets/images/brand/gray-logo-intercom.svg';
-// import PinterestLogo from '../assets/images/brand/gray-logo-pinterest.svg';
-// import NetflixLogo from '../assets/images/brand/gray-logo-netflix.svg';
+import ISAN from '../assets/images/brand/Brand4.svg';
+import rinok from '../assets/images/brand/Brand2.svg';
+import intelli from '../assets/images/brand/Brand3.svg';
+import trukhoj from '../assets/images/brand/trukhoj.svg';
+// import NetflixLogo from '../assets/images/brand/netflix.svg';
 const CompaniesSection = () => {
   return (
-    <div className='text-center ' style={{"marginBottom": "10rem"}}>
+    <div className='text-center bg-gray p-5' style={{"marginBottom": "10rem", "background-color": "#eff1f9", "marginLeft": "-15px", "marginRight": "-15px"}}>
         <h4>OUR PARTNERS</h4>
-        <div className='d-flex flex-row justify-content-around mt-3 p-3 rounded'>
-            <div>
-              <img src={Meta} className="m-2"/>
-              Meta
+        <div className='d-flex flex-row flex-wrap justify-content-around mt-4 rounded'>
+            <div className=''>
+              <img src={ISAN} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
-            <div>
-              <img src={Microsoft} className="m-2"/>
-              Microsoft
+            <div className=''>
+            <img src={trukhoj} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
-            <div>
-              <img src={Google} className="m-2"/>
-              Google
+            {/* <div>
+              <img src={NetflixLogo} className="m-2"/>
+            </div> */}
+            <div className=''>
+            <img src={intelli} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
-            <div>
-              <img src={IBM} className="m-2"/>
-              IBM
+            <div className=''>
+            <img src={rinok} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
         </div>
     </div>

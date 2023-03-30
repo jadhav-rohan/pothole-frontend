@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import PotholeCard from "./PotholeCard";
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
 
 const Display = () => {
     
@@ -14,26 +15,16 @@ const Display = () => {
         .catch((err) => console.log(err, "it has an error"));
     }, []);
 
-    const filteredBanglore = data && data.filter(item => {
-        return (
-            item.city.toLowerCase().includes("banglore") 
-        )
-    });
-    const filteredPune = data && data.filter(item => {
-        return (
-            item.city.toLowerCase().includes("pune") 
-        )
-    });
-    const filteredDelhi = data && data.filter(item => {
-        return (
-            item.city.toLowerCase().includes("delhi") 
-        )
-    });
-    const filterdMumbai = data && data.filter(item => {
-        return(
-            item.city.toLowerCase().includes("mumbai")
-        )
-    })
+    function filter(c){
+        return data && data.filter(item => {
+            return item.city.toLowerCase().includes(c)
+        })
+    }
+
+    const filteredBanglore = filter("banglore")
+    const filterdMumbai = filter("mumbai")
+    const filteredPune = filter("pune")
+    const filteredDelhi = filter("delhi")
 
     const potholesBanglore = filteredBanglore && filteredBanglore.slice(0,4).map((p,i) => (
         <PotholeCard key={i} 
@@ -78,23 +69,30 @@ const Display = () => {
     return (
         <div className="row" style={{marginTop: "16%"}}>
             <h2 className="text-center"><span className="text-primary">PotHoles</span> from Big Cities</h2>
-
-                <div className="container">
+                <div className="container m-5">
                 <div className="row">
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <h3>Banglore</h3>
-                        </div>
+                        <Row>
+                            <Col lg={12} md={12} sm={12}>
+                                <div className="mb-1 mt-1">
+                                    <h3 className="mb-1 text-secondary">Potholes from <span className="text-primary">Banglore</span></h3>
+                                </div>
+                            </Col>
+                        </Row>
                         <div className="col row">
                             {potholesBanglore}
                         </div>
                         <div className="col-1 d-flex flex-column justify-content-center">
                             <Link to="/filteredPothole" state = {{from: "banglore"}}>View All</Link>
-                        </div>
+                        </div> 
                     </div>
+                    <Row>
+                        <Col lg={12} md={12} sm={12}>
+                                <div className="mb-1 mt-5">
+                                    <h3 className="mb-1 text-secondary">Potholes from <span className="text-primary">Delhi</span></h3>
+                                </div>
+                            </Col>
+                        </Row>
                     <div className="row">
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <h3>Delhi</h3>
-                        </div>
                         <div className="col row">
                             {potholesDelhi}
                         </div>
@@ -103,9 +101,13 @@ const Display = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <h3>Mumbai</h3>
-                        </div>
+                    <Row>
+                            <Col lg={12} md={12} sm={12}>
+                                <div className="mb-1 mt-5">
+                                    <h3 className="mb-1 text-secondary">Potholes from <span className="text-primary">Mumbai</span></h3>
+                                </div>
+                            </Col>
+                        </Row>
                         <div className="col row">
                             {potholesMumbai}
                         </div>
@@ -114,9 +116,13 @@ const Display = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <h3>Pune</h3>
-                        </div>
+                    <Row>
+                            <Col lg={12} md={12} sm={12}>
+                                <div className="mb-1 mt-5">
+                                    <h3 className="mb-1 text-secondary">Potholes from <span className="text-primary">Pune</span></h3>
+                                </div>
+                            </Col>
+                        </Row>
                         <div className="col row">
                             {potholesPune}
                         </div>
@@ -127,7 +133,7 @@ const Display = () => {
                 </div>
                 {data.length > 8 && 
                 <div className='text-center'>
-                    <a className='p-3 rounded-pill btn btn-primary mt-3' href='/allPotholeCards'>VIEW ALL</a>
+                    <a className='pl-3 btn text-white mt-3' style={{"background": "#419be0"}} href='/allPotholeCards'>VIEW ALL</a>
                 </div>}
             {/* </Carousel> */}
          </div>

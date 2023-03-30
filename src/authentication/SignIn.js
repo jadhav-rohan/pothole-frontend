@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Fragment } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,7 +10,7 @@ import NavBar from "../core/NavBar";
 import axios from "axios";
 import { isAuthenticated } from "./helper/auth";
 const SignIn = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
@@ -26,20 +26,9 @@ const SignIn = () => {
 		e.preventDefault();
         axios.post("http://localhost:9002/api/login", {email, password})
         .then(res=> {
-			// if(res.data){
-			// 	console.log(res.data.error)
-			// }
-			// if(res.data.code === 400){
-			// 	toast.error("Password does not match!");
-			// }
-			// else if(res.data.code === 404){
-			// 	toast.error("User not registered!")
-			// }
 			if(res.data &&
 				res.data.code >= 400 &&
 				res.data.code <= 500){
-					// console.log("first")
-					// console.log(res)
 					toast.error(res.data.message)
 			}
 			else{
@@ -101,65 +90,26 @@ const SignIn = () => {
 													onChange={(e) => setPassword(e.target.value)} />
 											</Col>
 											<Col lg={12} md={12} className="mb-3">
-												{/* Checkbox */}
 												<div className="d-md-flex justify-content-between align-items-center">
-													{/* <Form.Group
-        className="mb-3 mb-md-0"
-        controlId="formBasicCheckbox"
-    >
-    <Form.Check type="checkbox" label="Remember me" />
-    </Form.Group> */}
 													<Link to="/forget-password">
 														Forgot your password?
 													</Link>
 												</div>
 											</Col>
 											<Col lg={12} md={12} className="mb-0 d-grid gap-2">
-												{/* Button */}
 												<Button variant="primary" type="submit" onClick={login}>
 													Sign in
 												</Button>
-
 											</Col>
 										</Row>
 									</Form>
-									<hr className="my-4" />
-									<div className="mt-4 text-center">
-										{/* Facebook */}
-										<Link
-											to="#"
-											className="btn-social btn-social-outline btn-facebook"
-										>
-											<i className="fab fa-facebook"></i>
-										</Link>{' '}
-										{/* Twitter */}
-										<Link
-											to="#"
-											className="btn-social btn-social-outline btn-twitter"
-										>
-											<i className="fab fa-twitter"></i>
-										</Link>{' '}
-										{/* LinkedIn */}
-										<Link
-											to="#"
-											className="btn-social btn-social-outline btn-linkedin"
-										>
-											<i className="fab fa-linkedin"></i>
-										</Link>{' '}
-										{/* GitHub */}
-										<Link
-											to="#"
-											className="btn-social btn-social-outline btn-github"
-										>
-											<i className="fab fa-github"></i>
-										</Link>
-									</div>
 								</Card.Body>
 							</Card>
 						</Col>
 					</Row>
 				</div>
-			</Fragment></>
+			</Fragment>
+			</>
 	
 		)
 	  }

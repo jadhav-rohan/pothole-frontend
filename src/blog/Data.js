@@ -7,7 +7,7 @@ const Data = () => {
 	const params = useParams()
 	const postid = params.id;
 
-    useEffect(() => {
+  useEffect(() => {
 		fetch("http://localhost:9002/api/getSingleBlog/"+postid)
 		.then((response)=>response.json())
 		.then((newData)=>{

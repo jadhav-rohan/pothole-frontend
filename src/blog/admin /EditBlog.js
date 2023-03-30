@@ -1,23 +1,36 @@
 import axios from "axios";
-import React, { useEffect, useState }  from "react";
+import { useEffect, useState } from "react";
+import { useHistory, useNavigate, useParams } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from "react-router-dom";
-import NavBar from "../core/NavBar";
-import {toast, ToastContainer} from "react-toastify"
-const AddBlog = () => {
-    const navigate = useNavigate();
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [author, setAuthor] = useState("")
-    const [time, setTime] = useState("")
-    const [date, setDate] = useState("")
-    const [image, setImage] = useState("")      
+import { toast, ToastContainer } from "react-toastify";
+import NavBar from "../../core/NavBar";
 
-    useEffect(() => {
-        if(localStorage.getItem("role") === "0"){
-            navigate("/sign-in")
-        } 
+const EditBlog = ({item}) => {
+    const navigate = useNavigate()
+        // useEffect(() => {
+        //     if(localStorage.getItem("role") !== "94227"){
+        //         navigate("/sign-in")
+        //     } 
+        // }, [])
+
+    const [details, setDetails] = useState("")
+    const params = useParams()
+	const postid = params.id;
+    // console.log(postid)
+    useEffect(() => {   
+        fetch("http://localhost:9002/api/getSingleBlog/"+postid)
+        .then((response)=>response.json())
+        .then((newData)=>{  
+            setDetails(newData)})
     }, [])
+    
+    const [title, setTitle] = useState(item.data.title)
+    const [description, setDescription] = useState(item.data.description)
+    const [author, setAuthor] = useState(item.data.author)
+    const [time, setTime] = useState(item.data.time)
+    const [date, setDate] = useState(item.data.date)
+    const [image, setImage] = useState("")      
+    
 
     function handleImage(e){
         const file = e.target.files[0];
@@ -25,50 +38,44 @@ const AddBlog = () => {
     }
 
     const TransformFile = (file) => {
-        const render = new FileReader();
+    const render = new FileReader();
 
-        if(file){
-            render.readAsDataURL(file)
-            render.onloadend = () => {
-                setImage(render.result)
-            }
-        }else{
-            setImage("")
+    if(file){
+        render.readAsDataURL(file)
+        render.onloadend = () => {
+            setImage(render.result)
         }
+    }else{
+        setImage("")
+    }
     }
 
     const handleApi = async (e) =>{
         e.preventDefault();
         try {
-            const {data} = await axios.post('http://localhost:9002/api/addBlog', {title, description, author, time, date, image})
+            const {data} = await axios.put(`http://localhost:9002/api/${postid}`, {title, description, author, time, date, image})
             if (data){
-                setTitle('');
-                setDescription('');
-                setAuthor('');
-                setTime('');
-                setDate('')
-                setImage('');
-                toast.success("Blog Added Succesfully!");
+                toast.success("Blog Edited Succesfully!");
             }
             // console.log(data);
         } catch (error) {
             console.log(error)
         }
     }
-
-    return(
-        <>
+    console.log(image)   
+  return (
+    <>
         <ToastContainer/>
         <div className="bg-light">
             <NavBar/>
-            <div class="container h-100 mt-5">
-                <div class="row h-100 justify-content-center align-items-center">
-                    <div class="col-10 col-md-8 col-lg-6">
+            <div className="container h-100 mt-5">
+                <div className="row h-100 justify-content-center align-items-center">
+                    <div className="col-10 col-md-8 col-lg-6">
                     <Form className="d-flex flex-column" onSubmit={handleApi} encType="multipart/form-data">
                     <h1>Fill the Details</h1>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control required type="text" placeholder="Title" 
+                            <Form.Control required type="text"
                             value={title}
                             onChange = {(e) => setTitle(e.target.value)}/>
                         </Form.Group>
@@ -102,9 +109,9 @@ const AddBlog = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
         </>
-    )
-}
+  );
+};
 
-export default AddBlog;
+export default EditBlog;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; 
+// import { useNavigate } from 'react-router-dom'; 
 
 import axios from "axios"
 // import media files
@@ -10,7 +10,7 @@ import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import NavBar from "../core/NavBar";
 import { toast, ToastContainer } from "react-toastify";
 const SignUp = () => {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");

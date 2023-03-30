@@ -20,7 +20,7 @@ const BlogArticleSingle = ({title, description, author, image}) => {
 					<h2>Author: {author}</h2>
 				</div>
 				<hr className="mt-8 mb-3" />
-				<div className='float-xl-left mb-3'>
+				<div className='float-left mb-3'>
 					<div>{description}</div>
 				</div>
 			</Container>

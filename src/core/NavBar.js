@@ -11,28 +11,32 @@ import { isAuthenticated, signout } from "../authentication/helper/auth";
 
 function NavBar() {
   const navigate = useNavigate();
-  
   return (
     <>
     <Navbar collapseOnSelect expand="lg" className="shadow-sm">
       <Container>
-        <Navbar.Brand href="/" className="text-primary">PotHero</Navbar.Brand>
+       
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <div className="ms-auto">
+          <Nav className="">
+          <Navbar.Brand href="/" className="text-primary">PotHero</Navbar.Brand>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/allPotholeCards">Find a <span className='text-primary'> PotHole </span></Nav.Link>
             
             <Nav.Link href="/blog">Blogs</Nav.Link>
             <Nav.Link href="/report">Report a <span className='text-primary'> PotHole </span></Nav.Link>
             
-            {isAuthenticated() && localStorage.getItem("role") === "1" && 
+            {isAuthenticated() && localStorage.getItem("role") === "94227" && 
               <NavDropdown title="Admin Actions" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="/addBlog">Add Blog</NavDropdown.Item>
                   <NavDropdown.Item href="/addAdmin">Add Admin</NavDropdown.Item>
+                  <NavDropdown.Item href="/blog">Edit Blog</NavDropdown.Item>
               </NavDropdown>
             }
           </Nav>
+          </div>
+          <div className="" style={{"marginLeft": "5rem"}}>
           <Nav>
             {!isAuthenticated()
              && <Button href="/sign-in" className="btn-light m-1 btn-outline-primary">Login</Button> 
@@ -52,9 +56,8 @@ function NavBar() {
               Signup    
             </Button>
             }
-
-            
           </Nav>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
