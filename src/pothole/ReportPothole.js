@@ -9,7 +9,6 @@ import { Country, State, City }  from 'country-state-city';
 import Select from "react-select";
 const ReportPothole = () => {
 
-    // const [email, setEmail] = useState("")
     const [address, setAddress] = useState("")
     const [pincode, setPincode] = useState("")
     const [city, setCity] = useState("")
