@@ -8,12 +8,13 @@ import BlogCard from './BlogCard';
 // import data files
 
 import axios from 'axios';
+import { API } from '../helper';
 
 const BlogSection = () => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:9002/api/getAllBlogs")
+		axios.get(`${API}/api/getAllBlogs`)
 		.then((res) => setData(res.data))
 		.catch((err) => console.log(err, "it has errror"))
 	}, [])

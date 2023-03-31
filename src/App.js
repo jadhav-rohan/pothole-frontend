@@ -6,8 +6,6 @@ import "./index.css"
 import ForgetPassword from "./authentication/ForgetPassword";
 import SignIn from "./authentication/SignIn";
 import SignUp from "./authentication/SignUp";
-import UserProfile from "./authentication/UserProfile";
-import BecomeVolunteer from "./core/BecomeVolunteer";
 import AddBlog from "./blog/AddBlog";
 import BlogListing from "./blog/BlogListing";
 import Data from "./blog/Data";

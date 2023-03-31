@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import EditBlog from './EditBlog';
+import { API } from '../../helper';
 
 const EditBlogData = () => {
 
@@ -14,7 +15,7 @@ const EditBlogData = () => {
 	const postid = params.id;
     
     useEffect(() => {   
-        fetch("http://localhost:9002/api/getSingleBlog/"+postid)
+        fetch(`${API}/api/getSingleBlog/`+postid)
         .then((response)=>response.json())
         .then((newData)=>{  
             setDetails(newData)})

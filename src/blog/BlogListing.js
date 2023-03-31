@@ -14,12 +14,13 @@ import Footer from '../core/Footer';
 import axios from 'axios';
 import BlogSection from './BlogSection';
 import { isAuthenticated } from '../authentication/helper/auth';
+import { API } from '../helper';
 
 const BlogListing = () => {
 	const [data, setData] = useState([]);
 	const role = localStorage.getItem("role");
 	useEffect(() => {
-		axios.get("http://localhost:9002/api/getAllBlogs")
+		axios.get(`${API}/api/getAllBlogs`)
 		.then((res) => setData(res.data))
 		.catch((err) => console.log(err, "it has errror"))
 	}, [])

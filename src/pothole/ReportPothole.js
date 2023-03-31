@@ -7,6 +7,8 @@ import { isAuthenticated } from "../authentication/helper/auth";
 import NavBar from "../core/NavBar";
 import { Country, State, City }  from 'country-state-city';
 import Select from "react-select";
+import { API } from "../helper";
+
 const ReportPothole = () => {
 
     const [address, setAddress] = useState("")
@@ -47,7 +49,7 @@ const ReportPothole = () => {
     const handleApi = async (e) =>{
         e.preventDefault();
         try {
-            const {data} = await axios.post('http://localhost:9002/api/addPothole', {email, address, pincode, city, state, image})
+            const {data} = await axios.post(`${API}/api/addPothole`, {email, address, pincode, city, state, image})
             if (data){
                 // setEmail('');
                 setAddress('');

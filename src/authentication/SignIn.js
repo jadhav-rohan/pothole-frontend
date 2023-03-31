@@ -5,10 +5,12 @@ import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import media files
+
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import NavBar from "../core/NavBar";
 import axios from "axios";
 import { isAuthenticated } from "./helper/auth";
+import { API } from "../helper";
 const SignIn = () => {
     // const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ const SignIn = () => {
 
     const login = (e) => {
 		e.preventDefault();
-        axios.post("http://localhost:9002/api/login", {email, password})
+        axios.post(`${API}/api/login`, {email, password})
         .then(res=> {
 			if(res.data &&
 				res.data.code >= 400 &&

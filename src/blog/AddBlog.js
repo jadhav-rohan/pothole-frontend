@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from "react-router-dom";
 import NavBar from "../core/NavBar";
 import {toast, ToastContainer} from "react-toastify"
+import { API } from "../helper";
+
 const AddBlog = () => {
     const navigate = useNavigate();
     const [title, setTitle] = useState("")
@@ -40,7 +42,7 @@ const AddBlog = () => {
     const handleApi = async (e) =>{
         e.preventDefault();
         try {
-            const {data} = await axios.post('http://localhost:9002/api/addBlog', {title, description, author, time, date, image})
+            const {data} = await axios.post(`${API}/api/addBlog`, {title, description, author, time, date, image})
             if (data){
                 setTitle('');
                 setDescription('');

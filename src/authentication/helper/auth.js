@@ -1,10 +1,12 @@
+import { API } from "../../helper";
+
 export const signout = (next) => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("jwt");
       localStorage.clear()
       next();
   
-      return fetch(`http://localhost:9002/api/signout`, {
+      return fetch(`${API}/api/signout`, {
         method: "GET",
       })
         .then((response) => {

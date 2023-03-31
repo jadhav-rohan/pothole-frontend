@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { API } from '../helper'
 import BlogArticleSingle from './BlogArticleSingle'
 
 const Data = () => {
@@ -8,7 +9,7 @@ const Data = () => {
 	const postid = params.id;
 
   useEffect(() => {
-		fetch("http://localhost:9002/api/getSingleBlog/"+postid)
+		fetch(`${API}/api/getSingleBlog/`+postid)
 		.then((response)=>response.json())
 		.then((newData)=>{
 			console.log(newData.data);

@@ -4,6 +4,7 @@ import { useHistory, useNavigate, useParams } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import { toast, ToastContainer } from "react-toastify";
 import NavBar from "../../core/NavBar";
+import { API } from "../../helper";
 
 const EditBlog = ({item}) => {
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ const EditBlog = ({item}) => {
 	const postid = params.id;
     // console.log(postid)
     useEffect(() => {   
-        fetch("http://localhost:9002/api/getSingleBlog/"+postid)
+        fetch(`${API}/api/getSingleBlog/`+postid)
         .then((response)=>response.json())
         .then((newData)=>{  
             setDetails(newData)})
@@ -53,7 +54,7 @@ const EditBlog = ({item}) => {
     const handleApi = async (e) =>{
         e.preventDefault();
         try {
-            const {data} = await axios.put(`http://localhost:9002/api/${postid}`, {title, description, author, time, date, image})
+            const {data} = await axios.put(`${API}/api/${postid}`, {title, description, author, time, date, image})
             if (data){
                 toast.success("Blog Edited Succesfully!");
             }

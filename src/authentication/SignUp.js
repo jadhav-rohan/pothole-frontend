@@ -9,6 +9,7 @@ import axios from "axios"
 import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import NavBar from "../core/NavBar";
 import { toast, ToastContainer } from "react-toastify";
+import { API } from "../helper";
 const SignUp = () => {
     // const navigate = useNavigate()
 
@@ -19,7 +20,7 @@ const SignUp = () => {
     const register = (e) => {
 		e.preventDefault();
         if( name && email && password){
-				axios.post("http://localhost:9002/api/signup", {name, email, password, mobile})
+				axios.post(`${API}/api/signup`, {name, email, password, mobile})
 				.then((res) => {
 					// navigate("/sign-in")
 					if(res.data.code === 404){

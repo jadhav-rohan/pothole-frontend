@@ -2,8 +2,8 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Col, Row, Form, Button } from 'react-bootstrap';
-
 import { toast, ToastContainer } from 'react-toastify';
+import { API } from '../helper';
 const ContactForm = () => {
 	
     const [firstName, setFirstName] = useState('')
@@ -15,7 +15,7 @@ const ContactForm = () => {
     const handleSubmit= (e) => {
         e.preventDefault();
 
-        axios.post("http://localhost:9002/api/addVolunteer", {firstName, lastName, email, message, mobile})
+        axios.post(`${API}/api/addVolunteer`, {firstName, lastName, email, message, mobile})
         .then((res) => {
             toast(res.data.message)
             setFirstName("")

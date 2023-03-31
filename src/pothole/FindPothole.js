@@ -6,6 +6,7 @@ import NavBar from "../core/NavBar";
 import Footer from "../core/Footer";
 import { Col, Form, InputGroup } from 'react-bootstrap';
 import Pagination from "./Pagination";
+import { API } from "../helper";
 
 const AllPotholeCards = () => {
     const [search, setSearch] = useState("")
@@ -18,7 +19,7 @@ const AllPotholeCards = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         axios
-        .get("http://localhost:9002/api/getAll")
+        .get(`${API}/api/getAll`)
         .then((res) => setData(res.data))
         .catch((err) => console.log(err, "it has an error"));
     }, []);

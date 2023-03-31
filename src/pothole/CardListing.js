@@ -4,13 +4,15 @@ import PotholeCard from "./PotholeCard";
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
+import { API } from "../helper";
+
 
 const Display = () => {
     
     const [data, setData] = useState([]);
     useEffect(() => {
         axios
-        .get("http://localhost:9002/api/getAll")
+        .get(`${API}/api/getAll`)
         .then((res) => setData(res.data))
         .catch((err) => console.log(err, "it has an error"));
     }, []);
@@ -25,6 +27,8 @@ const Display = () => {
     const filterdMumbai = filter("mumbai")
     const filteredPune = filter("pune")
     const filteredDelhi = filter("delhi")
+
+    // console.log(filteredPune)
 
     const potholesBanglore = filteredBanglore && filteredBanglore.slice(0,4).map((p,i) => (
         <PotholeCard key={i} 

@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { API } from "../helper";
 // import { Fragment } from "react/cjs/react.production.min";
 
 
@@ -11,7 +12,7 @@ const EmailVerify = () => {
 	useEffect(() => {
 		const verifyEmailUrl = async () => {
 			// try {
-				const url = `http://localhost:9002/api/${param.id}/verify/${param.token}`;
+				const url = `${API}/api/${param.id}/verify/${param.token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);

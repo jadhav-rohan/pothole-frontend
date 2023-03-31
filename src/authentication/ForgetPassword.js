@@ -8,6 +8,7 @@ import Logo from '../assets/images/brand/logo/logo-icon.svg';
 import axios from 'axios';
 import NavBar from '../core/NavBar';
 import { toast, ToastContainer } from 'react-toastify';
+import { API } from '../helper';
 
 const ForgetPassword = () => {
 
@@ -15,7 +16,7 @@ const ForgetPassword = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:9002/api/forget-password", {email} ).then((res) => {
+        axios.post(`${API}/api/forget-password`, {email} ).then((res) => {
             toast.success(res.data.msg)
 			setEmail("")
         }).catch((error) => {
