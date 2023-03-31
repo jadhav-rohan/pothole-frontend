@@ -13,16 +13,13 @@ const CompaniesSection = () => {
               <img src={ISAN} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
             <div className=''>
-            <img src={trukhoj} style= {{"width": "12rem", "height": "5rem"}}/>
-            </div>
-            {/* <div>
-              <img src={NetflixLogo} className="m-2"/>
-            </div> */}
-            <div className=''>
-            <img src={intelli} style= {{"width": "12rem", "height": "5rem"}}/>
+              <img src={trukhoj} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
             <div className=''>
-            <img src={rinok} style= {{"width": "12rem", "height": "5rem"}}/>
+              <img src={intelli} style= {{"width": "12rem", "height": "5rem"}}/>
+            </div>
+            <div className=''>
+              <img src={rinok} style= {{"width": "12rem", "height": "5rem"}}/>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ const Display = () => {
         .then((res) => setData(res.data))
         .catch((err) => console.log(err, "it has an error"));
     }, []);
-
+    console.log(data)
     function filter(c){
         return data && data.filter(item => {
             return item.city.toLowerCase().includes(c)
@@ -82,9 +82,9 @@ const Display = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <div className="col row">
+                        <Col className="col row" lg={10} xs={8} xl={10} md={10}>
                             {potholesBanglore}
-                        </div>
+                        </Col>
                         <div className="col-1 d-flex flex-column justify-content-center">
                             <Link to="/filteredPothole" state = {{from: "banglore"}}>View All</Link>
                         </div> 
@@ -97,9 +97,9 @@ const Display = () => {
                             </Col>
                         </Row>
                     <div className="row">
-                        <div className="col row">
+                    <Col className="col row" lg={10} xs={8} xl={10} md={10}>
                             {potholesDelhi}
-                        </div>
+                        </Col>
                         <div className="col-1 d-flex flex-column justify-content-center">
                             <Link to="/filteredPothole" state = {{from: "delhi"}}>View All</Link>
                         </div>
@@ -112,9 +112,9 @@ const Display = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <div className="col row">
+                        <Col className="col row" lg={10} xs={8} xl={10} md={10}>
                             {potholesMumbai}
-                        </div>
+                        </Col>
                         <div className="col-1 d-flex flex-column justify-content-center">
                             <Link to="/filteredPothole" state = {{from: "mumbai"}}>View All</Link>
                         </div>
@@ -127,9 +127,9 @@ const Display = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <div className="col row">
+                        <Col className="col row" lg={10} xs={8} xl={10} md={10}>
                             {potholesPune}
-                        </div>
+                        </Col>
                         <div className="col-1 d-flex flex-column justify-content-center">
                             <Link to="/filteredPothole" state = {{from: "pune"}}>View All</Link>
                         </div>

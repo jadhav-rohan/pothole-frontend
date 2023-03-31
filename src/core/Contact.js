@@ -50,11 +50,12 @@ const Contact = ({title}) => {
 								</p>
 								<p className="fs-4">
 									<EnvelopeOpen size={16} className="text-primary me-2" />{' '}
-									hello@geekui.com
+									info@potholehero.org
 								</p>
 								<p className="fs-4 ">
-									<GeoAlt size={17} className="text-primary me-2" /> 2652 Kooter
-									Lane Charlotte, NC 28263
+									<GeoAlt size={17} className="text-primary me-2" />Head Office
+								E803,HRC Ibbani Apartment, Arkavathy Layout, Jakkur, 
+								Bengaluru, Karnataka 560064
 								</p>
 							</div>
 

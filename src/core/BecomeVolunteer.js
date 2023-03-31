@@ -20,8 +20,7 @@ const BecomeVolunteer = () => {
             <h2 className="text-light mb-2"> Become a<span className=''>  Volunteer</span> today</h2>
             <p className="mb-0">Join our team of dedicated volunteers and make a positive impact on our community! 
             As a volunteer, you'll have the opportunity to help repair potholes, organize community events, 
-            and fundraise for our cause. We welcome volunteers of all ages and skill levels, and no previous 
-            experience is required!</p>
+            and fundraise for our cause. </p>
             <Link to="/becomeVolunteer" className="btn btn-light mt-4">Start Contributing Today</Link>
           </div>
         </Col>

@@ -113,7 +113,7 @@ const FooterWithLinks = () => {
 								E803,HRC Ibbani Apartment, Arkavathy Layout, Jakkur, 
 								Bengaluru, Karnataka 560064</p>
 								<p className="mb-1 text-white">
-									Email: <Link to="#" className='text-dark'>info@potholehero.org</Link>
+									Email: <Link to="#" className='text-white'>info@potholehero.org</Link>
 								</p>
 								<p>
 									Phone:{' '}
@@ -127,7 +127,7 @@ const FooterWithLinks = () => {
 					<Row className="align-items-center g-0 border-top py-2 mt-6">
 						{/* Desc  */}
 						<Col lg={4} md={5} sm={12}>
-							<span>© 2023 A Part of Ashama Foundation All Rights Reserved</span>
+							<span className='text-white'>© 2023 A Part of Ashama Foundation All Rights Reserved</span>
 						</Col>
 						{/*  Links  */}
 						<Col

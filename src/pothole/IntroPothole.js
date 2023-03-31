@@ -20,7 +20,7 @@ const IntroPothole = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block",paddingTop: "3px", height: "25px", borderRadius:"1rem",width: "25px", background: "black" }}
+        style={{ ...style, display: "block",padding: "0px", height: "18px", borderRadius:"10px",width: "18px", background: "black" }}
         onClick={onClick}
       />
     );
@@ -31,7 +31,7 @@ const IntroPothole = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block",paddingTop: "3px", height: "25px", borderRadius:"1rem",width: "25px", background: "black" }}
+        style={{ ...style, display: "block",paddingTop: "0px", height: "18px", borderRadius:"10px",width: "18px", background: "black" }}
         onClick={onClick}
       />
     );
@@ -52,8 +52,8 @@ const IntroPothole = () => {
 
   var settings = {
     dots: true,
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
    
   };
 
@@ -103,7 +103,7 @@ const IntroPothole = () => {
                   />
                 </Carousel.Item>
             </Carousel> */} 
-            <div className='container w-100 p-5 rounded slick-dotted' style={{"background": "#419be0"}}>
+            <div className='container w-100 p-5 rounded slick-dotted'>
             <Slider {...settings}>
               <div> 
                 <img
