@@ -12,6 +12,7 @@ import { API } from "../helper";
 const FilteredPothole = () => {
     const [search, setSearch] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
+    const [data, setData] = useState([]);
     const postPerPage = 12;
 
     const lastPostIndex = currentPage * postPerPage;
@@ -20,7 +21,6 @@ const FilteredPothole = () => {
     const location = useLocation()
     const {from} = location.state
     
-    const [data, setData] = useState([]);
     useEffect(() => {
         axios
         .get(`${API}/api/getAll`)

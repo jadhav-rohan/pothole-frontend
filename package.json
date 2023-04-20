@@ -15,6 +15,7 @@
     "dotenv": "^16.0.3",
     "form-data": "^4.0.0",
     "formik": "^2.2.9",
+    "geolocation": "^0.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-icons": "^1.10.2",

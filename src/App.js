@@ -18,13 +18,8 @@ import FilteredPothole from "./pothole/FilteredPothole";
 import EditBlog from "./blog/admin /EditBlog";
 import AdminDashboard from "./blog/admin /EditBlogData";
 import EditBlogData from "./blog/admin /EditBlogData";
-import SimpleSlider from "./Demo";
-
-import ContactForm from "./core/ContactForm";
 import Contact from "./core/Contact";
 import PrivacyPolicy from "./core/PrivacyPolicy";
-
-
 
 function App() {
   return (
@@ -44,12 +39,10 @@ function App() {
 		<Route path = "/editBlog" element = {<AdminDashboard/>}/>
 		<Route path = "/about" element = {<AboutUs/>}/>
 		<Route path = "/filteredPothole" element = {<FilteredPothole/>}/>
-		<Route path = "/demo" element = {<SimpleSlider/>}/>
 		<Route path="/:id/verify/:token" element={<EmailVerify />} />
 		<Route path="/becomeVolunteer" element={<Contact title={"Become a Volunteer"} />} />
 		<Route path="/contact" element={<Contact title={"Get in touch with us"} />} />
 		<Route path="/privacypolicy" element={<PrivacyPolicy/>} />
-		
 	</Routes>
   );
 }

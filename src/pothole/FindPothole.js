@@ -11,12 +11,12 @@ import { API } from "../helper";
 const AllPotholeCards = () => {
     const [search, setSearch] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
+    const [data, setData] = useState([]);
     const postPerPage = 12;
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
 
-    const [data, setData] = useState([]);
     useEffect(() => {
         axios
         .get(`${API}/api/getAll`)

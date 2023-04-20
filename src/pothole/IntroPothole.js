@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 // import Carousel from 'react-bootstrap/Carousel';
 import Slider from 'react-slick';
-
+import { API } from "../helper";
 
 // import media files
 
@@ -14,6 +14,10 @@ import Street from '../assets/images/png/3p.jpg';
 
 
 const IntroPothole = () => {
+
+  const [data, setData] = useState([]);
+  const [nextIcon, setNextIcon] = useState(<span className='bg-dark'></span>)
+  const [prevIcon, setPrevIcon] = useState(<span className='glyphicon glyphicon-glass'></span>)
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -37,10 +41,9 @@ const IntroPothole = () => {
     );
   }
 
-  const [data, setData] = useState([]);
   useEffect(() => {
       axios
-      .get("http://localhost:9002/api/getAll")
+      .get(`${API}/api/getAll`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err, "it has an error"));
   }, []);
@@ -57,8 +60,6 @@ const IntroPothole = () => {
    
   };
 
-  const [nextIcon, setNextIcon] = useState(<span className='bg-dark'></span>)
-  const [prevIcon, setPrevIcon] = useState(<span className='glyphicon glyphicon-glass'></span>)
   return (
     <section className="bg-light py-lg-14 py-12 bg-cover mb-3 ">
       {/* container */}
@@ -80,29 +81,6 @@ const IntroPothole = () => {
           </Col>
           <Col lg={{ span: 6, offset: 2 }} sm={10} className="text-center">
             <div className="position-relative">
-            {/* <Carousel variant="dark">
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src={Asphalt}
-                    alt="First slide"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src = {Street}
-                    alt="Second slide"
-                  />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src = {Highway}
-                    alt="Third slide"
-                  />
-                </Carousel.Item>
-            </Carousel> */} 
             <div className='container w-100 p-5 rounded slick-dotted'>
             <Slider {...settings}>
               <div> 

@@ -16,7 +16,7 @@ const Display = () => {
         .then((res) => setData(res.data))
         .catch((err) => console.log(err, "it has an error"));
     }, []);
-    console.log(data)
+    // console.log(data)
     function filter(c){
         return data && data.filter(item => {
             return item.city.toLowerCase().includes(c)
