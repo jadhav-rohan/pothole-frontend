@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
+import { Col, Row, Card, Form, Button, Image, Spinner } from 'react-bootstrap';
 // import { useNavigate } from 'react-router-dom'; 
 
 import axios from "axios"
@@ -17,23 +17,32 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 	const [mobile, setMobile] = useState("")
+	const [loading, setLoading] = useState(false)
     const register = (e) => {
 		e.preventDefault();
+
         if( name && email && password){
+				setLoading(true);
 				axios.post(`${API}/api/signup`, {name, email, password, mobile})
 				.then((res) => {
+					// console.log(res)
 					// navigate("/sign-in")
-					if(res.data.code === 404){
-						toast.error("User already registered!", {autoClose: 2000})
+					if(res.data &&
+						res.data.code >= 400 &&
+						res.data.code <= 500)
+					{
+						toast.error(res.data.message)
+						setLoading(false)
 					}
 					else{
+						setLoading(false);
 						toast.success(res.data.message)
 						setEmail("");
 						setName("");
 						setPassword("")
 						setMobile("")
 					}
-				})
+				}).catch((err) => console.log(err))
         	}
 			else{
 				toast.warning("All fields are mandatory to fill!")
@@ -126,9 +135,9 @@ const SignUp = () => {
 									</Col>
 									<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 										{/* Button */}
-										
 										<Button variant="primary" type="submit" onClick={register}>
-											Sign in
+											{loading ? <Spinner/> : "Sign Up"}
+											{/* Sign Up */}
 										</Button>
 									</Col>
 								</Row>

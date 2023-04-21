@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Card, Form, Button, Image } from 'react-bootstrap';
+import { Col, Row, Card, Form, Button, Image, Spinner } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import media files
@@ -15,7 +15,7 @@ const SignIn = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
-	
+	const [loading, setLoading] = useState(false)
 	const {user} = isAuthenticated();
 	var role;
 	if(user){
@@ -24,15 +24,18 @@ const SignIn = () => {
 
     const login = (e) => {
 		e.preventDefault();
+		setLoading(true);
         axios.post(`${API}/api/login`, {email, password})
         .then(res=> {
 			if(res.data &&
 				res.data.code >= 400 &&
 				res.data.code <= 500){
 					toast.error(res.data.message)
+					setLoading(false);
 			}
 			else{
 				// navigate("/")
+				setLoading(false);
 				toast.success(res.data.message, {autoClose: 2000});
 				localStorage.setItem("jwt",JSON.stringify(res.data))
 				localStorage.setItem("role",res.data.role)
@@ -98,7 +101,7 @@ const SignIn = () => {
 											</Col>
 											<Col lg={12} md={12} className="mb-0 d-grid gap-2">
 												<Button variant="primary" type="submit" onClick={login}>
-													Sign in
+													{loading ? <Spinner/> : "Sign In"}
 												</Button>
 											</Col>
 										</Row>
