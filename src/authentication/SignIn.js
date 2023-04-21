@@ -12,14 +12,12 @@ import axios from "axios";
 import { isAuthenticated } from "./helper/auth";
 import { API } from "../helper";
 const SignIn = () => {
-    // const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
 	
 	const {user} = isAuthenticated();
 	var role;
-	// console.log(user)
 	if(user){
 		role = user.role;
 	}
@@ -35,7 +33,7 @@ const SignIn = () => {
 			}
 			else{
 				// navigate("/")
-				toast.success(res.data.message);
+				toast.success(res.data.message, {autoClose: 2000});
 				localStorage.setItem("jwt",JSON.stringify(res.data))
 				localStorage.setItem("role",res.data.role)
 				setEmail("")

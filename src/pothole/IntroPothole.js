@@ -44,7 +44,7 @@ const IntroPothole = () => {
   useEffect(() => {
       axios
       .get(`${API}/api/getAll`)
-      .then((res) => setData(res.data))
+      .then((res) => setData(res.data.reverse()))
       .catch((err) => console.log(err, "it has an error"));
   }, []);
 

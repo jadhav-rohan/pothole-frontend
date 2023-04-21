@@ -11,14 +11,16 @@ import {
 import "tachyons";
 import 'tippy.js/animations/scale.css';
 
-const PotholeCard = ({image, address, pincode, city, state}) => {
-  
+const PotholeCard = ({item, image, address, pincode, city, state}) => {
+  const addr = address.slice(0, 20)
   return (
 
     <div className="col-md-3" style={{marginTop: "20px"}}>
     {/* <Card className=""> */}
     <div className="dib bg-white-90 b--light-silver br-2 mr3 card grow">
-    <Link to="#">
+    <Link 
+    to={`/getSinglePothole/${item._id}`}
+    >
         <Image
             src={image}
             alt=""
@@ -32,9 +34,11 @@ const PotholeCard = ({image, address, pincode, city, state}) => {
                  {city}
             </Link>
         </h3>
-        <ListGroup as="ul" bsPrefix="list-inline" className="">
+        <ListGroup as="ul" bsPrefix="list-inline" >
             <ListGroup.Item as="li" bsPrefix="list-inline-item">
-                Address: {address}
+                Address: {addr}
+                {/* {address.length} */}
+                {address.length > 20 && " ....."}
             </ListGroup.Item>
         </ListGroup>
         <ListGroup as="ul" bsPrefix="list-inline" className="mb-2">

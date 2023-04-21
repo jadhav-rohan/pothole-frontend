@@ -115,7 +115,7 @@ const ReportPothole = () => {
                 setCity('');
                 setState('')
                 setImage('');
-                toast.success('Product created Successfully!')
+                toast.success('Product created Successfully!', {autoClose: 5000})
                 setSubmitting(false);
             }
         } catch (error) {

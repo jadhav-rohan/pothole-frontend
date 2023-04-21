@@ -24,7 +24,7 @@ const SignUp = () => {
 				.then((res) => {
 					// navigate("/sign-in")
 					if(res.data.code === 404){
-						toast.error("User already registered!")
+						toast.error("User already registered!", {autoClose: 2000})
 					}
 					else{
 						toast.success(res.data.message)

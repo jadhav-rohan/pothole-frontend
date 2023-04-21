@@ -17,7 +17,7 @@ const ForgetPassword = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post(`${API}/api/forget-password`, {email} ).then((res) => {
-            toast.success(res.data.msg)
+            toast.success(res.data.msg, {autoClose: 2000})
 			setEmail("")
         }).catch((error) => {
             alert(error)

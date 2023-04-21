@@ -20,7 +20,8 @@ const AllPotholeCards = () => {
     useEffect(() => {
         axios
         .get(`${API}/api/getAll`)
-        .then((res) => setData(res.data))
+        .then((res) => 
+        setData(res.data.reverse()))
         .catch((err) => console.log(err, "it has an error"));
     }, []);
 
@@ -38,6 +39,7 @@ const AllPotholeCards = () => {
 
     const potholes = f.length > 0 && f.map((p, i) => (
         <PotholeCard 
+        item = {p}
         key={i}
         image={p.image.url} 
         email={p.email}

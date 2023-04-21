@@ -47,6 +47,7 @@ const FilteredPothole = () => {
     
     const potholesCityWise = filtered.length > 0 && filtered.map((p, i) => (
         <PotholeCard 
+        item = {p}
         key={i}
         image={p.image.url} 
         email={p.email}

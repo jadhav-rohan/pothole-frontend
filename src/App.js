@@ -20,6 +20,7 @@ import AdminDashboard from "./blog/admin /EditBlogData";
 import EditBlogData from "./blog/admin /EditBlogData";
 import Contact from "./core/Contact";
 import PrivacyPolicy from "./core/PrivacyPolicy";
+import SinglePothole from "./pothole/SinglePothole";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
 		<Route path = "/addBlog" element = {<AddBlog/>}/>
 		<Route path = "/allPotholeCards" element = {<AllPotholeCards/>}/>
 		<Route path = "/blog/article-single/:id" element = {<Data/>}/>
+		<Route path = "/getSinglePothole/:id" element = {<SinglePothole/>}/>
 		<Route path = "/blog/article-single/edit/:id" element = {<EditBlogData/>}/>
 		<Route path = "/blog/article-single/edit" element = {<EditBlog/>}/>
 		<Route path = "/editBlog" element = {<AdminDashboard/>}/>

@@ -1,0 +1,82 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { API } from "../helper";
+import { useParams } from 'react-router-dom'
+import { Link } from "react-router-dom";
+
+import {
+	Image,
+	Card,
+	Row,
+	Col,
+	ListGroup,
+} from 'react-bootstrap';
+import "tachyons";
+import 'tippy.js/animations/scale.css';
+import NavBar from '../core/NavBar';
+const SinglePothole = () => {
+    const [data, setData] = useState("")
+    const params = useParams();
+    const postid = params.id;
+
+    useEffect(() => {
+        axios.get(`${API}/api/getSinglePothole/`+postid)
+        .then((newData) =>{ 
+        setData(newData)
+        console.log("single pothole: ",newData);
+    })
+    }, [])
+    var address, city, pincode, state, image;
+    if(data && data.data && data.data.data){
+      image = data.data.data.image.url;
+      address = data.data.data.address;
+      city = data.data.data.city;
+      pincode = data.data.data.pincode;
+      state = data.data.data.state;
+    }
+   
+  return (
+    <>
+    <NavBar/>
+    <div className=' d-flex justify-content-center'>
+    <div className="col-md-3" style={{marginTop: "20px"}}>
+      <div className="dib bg-white-90 b--light-silver br-2 mr3 card grow">
+          <Image
+              src={image}
+              alt=""
+              className="card-img-top rounded-top-md "
+          />
+          <Card.Body>
+              <h3 className="h6">
+                  <Link to="#" className="text-inherit text-decoration-none">
+                      {city}
+                  </Link>
+              </h3>
+              <ListGroup as="ul" bsPrefix="list-inline" >
+                  <ListGroup.Item as="li" bsPrefix="list-inline-item">
+                      Address: {address}
+                      {/* {address.length} */}
+                      
+                  </ListGroup.Item>
+              </ListGroup>
+              <ListGroup as="ul" bsPrefix="list-inline" className="mb-2">
+                  <ListGroup.Item as="li" bsPrefix="list-inline-item">
+                      State: {state}
+                  </ListGroup.Item>
+              </ListGroup>
+          </Card.Body>
+          <Card.Footer>
+              <Row className="align-items-center g-0 ml-2 mb-2">
+                  <Col className="col ms-2">
+                      <span>Pincode: {pincode}</span>
+                  </Col>
+              </Row>
+          </Card.Footer>
+      </div>
+    </div> 
+    </div>
+    </>
+  )
+}
+
+export default SinglePothole;

@@ -50,7 +50,7 @@ const AddBlog = () => {
                 setTime('');
                 setDate('')
                 setImage('');
-                toast.success("Blog Added Succesfully!");
+                toast.success("Blog Added Succesfully!", {autoClose: 2000});
             }
             // console.log(data);
         } catch (error) {

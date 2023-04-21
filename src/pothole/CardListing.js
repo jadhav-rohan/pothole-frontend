@@ -13,7 +13,7 @@ const Display = () => {
     useEffect(() => {
         axios
         .get(`${API}/api/getAll`)
-        .then((res) => setData(res.data))
+        .then((res) => setData(res.data.reverse()))
         .catch((err) => console.log(err, "it has an error"));
     }, []);
     // console.log(data)
@@ -31,7 +31,9 @@ const Display = () => {
     // console.log(filteredPune)
 
     const potholesBanglore = filteredBanglore && filteredBanglore.slice(0,4).map((p,i) => (
-        <PotholeCard key={i} 
+        <PotholeCard 
+        item = {p}
+        key={i} 
         image={p.image.url} 
         email={p.email}
         address={p.address} 
@@ -41,7 +43,9 @@ const Display = () => {
     ));
 
     const potholesPune = filteredPune && filteredPune.slice(0,4).map((p,i) => (
-        <PotholeCard key={i} 
+        <PotholeCard 
+        item = {p}
+        key={i} 
         image={p.image.url} 
         email={p.email}
         address={p.address} 
@@ -51,7 +55,9 @@ const Display = () => {
     ));
 
     const potholesDelhi = filteredDelhi && filteredDelhi.slice(0,4).map((p,i) => (
-        <PotholeCard key={i} 
+        <PotholeCard 
+        item = {p}
+        key={i} 
         image={p.image.url} 
         email={p.email}
         address={p.address} 
@@ -61,7 +67,9 @@ const Display = () => {
     ));
 
     const potholesMumbai = filterdMumbai && filterdMumbai.slice(0,4).map((p,i) => (
-        <PotholeCard key={i} 
+        <PotholeCard 
+        item = {p}
+        key={i} 
         image={p.image.url} 
         email={p.email}
         address={p.address} 
@@ -82,12 +90,16 @@ const Display = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <Col className="col row" lg={10} xs={8} xl={10} md={10}>
+                        <Col className="col row" lg={10} xs={8} xl={11} md={10}>
                             {potholesBanglore}
                         </Col>
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <Link to="/filteredPothole" state = {{from: "banglore"}}>View All</Link>
-                        </div> 
+                        {/* <div className="col-1 d-flex flex-column justify-content-center"> */}
+                            <Link to="/filteredPothole" state = {{from: "banglore"}}>
+                                <div className="mt-3">
+                                    View All
+                                </div>
+                            </Link>
+                        {/* </div>  */}
                     </div>
                     <Row>
                         <Col lg={12} md={12} sm={12}>
@@ -97,12 +109,16 @@ const Display = () => {
                             </Col>
                         </Row>
                     <div className="row">
-                    <Col className="col row" lg={10} xs={8} xl={10} md={10}>
+                    <Col className="col row" lg={10} xs={8} xl={11} md={10}>
                             {potholesDelhi}
                         </Col>
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <Link to="/filteredPothole" state = {{from: "delhi"}}>View All</Link>
-                        </div>
+                        {/* <div className="col-1 d-flex flex-column justify-content-center"> */}
+                            <Link to="/filteredPothole" state = {{from: "delhi"}}>
+                            <div className="mt-3">
+                                    View All
+                            </div>
+                            </Link>
+                        {/* </div> */}
                     </div>
                     <div className="row">
                     <Row>
@@ -112,12 +128,16 @@ const Display = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <Col className="col row" lg={10} xs={8} xl={10} md={10}>
+                        <Col className="col row" lg={10} xs={8} xl={11} md={10}>
                             {potholesMumbai}
                         </Col>
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <Link to="/filteredPothole" state = {{from: "mumbai"}}>View All</Link>
-                        </div>
+                        {/* <div className="col-1 d-flex flex-column justify-content-center"> */}
+                            <Link to="/filteredPothole" state = {{from: "mumbai"}}>
+                            <div className="mt-3">
+                                    View All
+                                </div>
+                            </Link>
+                        {/* </div> */}
                     </div>
                     <div className="row">
                     <Row>
@@ -127,12 +147,14 @@ const Display = () => {
                                 </div>
                             </Col>
                         </Row>
-                        <Col className="col row" lg={10} xs={8} xl={10} md={10}>
+                        <Col className="col row" lg={10} xs={8} xl={11} md={10}>
                             {potholesPune}
                         </Col>
-                        <div className="col-1 d-flex flex-column justify-content-center">
-                            <Link to="/filteredPothole" state = {{from: "pune"}}>View All</Link>
-                        </div>
+                            <Link to="/filteredPothole" state = {{from: "pune"}}>
+                                <div className="mt-3">
+                                    View All
+                                </div>
+                            </Link>
                     </div>
                 </div>
                 {data.length > 8 && 
