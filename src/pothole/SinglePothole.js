@@ -23,17 +23,28 @@ const SinglePothole = () => {
         axios.get(`${API}/api/getSinglePothole/`+postid)
         .then((newData) =>{ 
         setData(newData)
-        console.log("single pothole: ",newData);
+        // console.log("single pothole: ",newData);
     })
     }, [])
-    var address, city, pincode, state, image;
+
+    
+    var address, city, pincode, state, image, lat, lng;
     if(data && data.data && data.data.data){
       image = data.data.data.image.url;
       address = data.data.data.address;
       city = data.data.data.city;
       pincode = data.data.data.pincode;
       state = data.data.data.state;
+      lat = data.data.data.latitude;
+      lng = data.data.data.longitude;
     }
+
+    // console.log(lat, lng)
+    useEffect(() => {
+        const ifameData = document.getElementById("iframeId")
+        ifameData.src = `https://maps.google.com/maps?q=${lat},${lng}&hl=es;&output=embed`
+    })
+    
    
   return (
     <>
@@ -74,6 +85,10 @@ const SinglePothole = () => {
           </Card.Footer>
       </div>
     </div> 
+    </div>
+    <div className='text-center mt-5'>
+        <h3 className='text-primary'>Get Directions</h3>
+        <iframe id='iframeId' className='w-50 rounded border border-primary'></iframe>
     </div>
     </>
   )
